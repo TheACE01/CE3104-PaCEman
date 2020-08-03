@@ -10,7 +10,7 @@ import java.awt.*;
 public class PacDot extends GameObject implements Item {
 
     private Skins tex;
-
+    private String id = "pacDot";
 
     public PacDot(double x, double y, Skins tex){
         super(x, y);
@@ -34,6 +34,11 @@ public class PacDot extends GameObject implements Item {
 
     public double getY() {
         return y;
+    }
+
+    @Override
+    public String getItemName() {
+        return id;
     }
 
     public Rectangle getBounds(){

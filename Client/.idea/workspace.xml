@@ -8,23 +8,35 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1fCXUxKhooYhP7gadImK4pgllnN" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dataStructures.DijkstraAlgorithm" />
       <recent name="Physics" />
       <recent name="user" />
       <recent name="items" />
       <recent name="characters" />
-      <recent name="creators" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kevin Avevedo\IdeaProjects\Client" />
@@ -69,6 +81,20 @@
       <updated>1595723067442</updated>
       <workItem from="1595723071845" duration="3650000" />
       <workItem from="1595726895069" duration="4557000" />
+      <workItem from="1595792177625" duration="1346000" />
+      <workItem from="1595863116798" duration="25255000" />
+      <workItem from="1595954208055" duration="15784000" />
+      <workItem from="1595974138920" duration="20971000" />
+      <workItem from="1595996204196" duration="9984000" />
+      <workItem from="1596041684397" duration="9022000" />
+      <workItem from="1596053558553" duration="3058000" />
+      <workItem from="1596065004914" duration="1942000" />
+      <workItem from="1596075484211" duration="864000" />
+      <workItem from="1596150085538" duration="279000" />
+      <workItem from="1596207752441" duration="21569000" />
+      <workItem from="1596245940058" duration="50000" />
+      <workItem from="1596250426770" duration="932000" />
+      <workItem from="1596478065234" duration="187000" />
     </task>
     <servers />
   </component>

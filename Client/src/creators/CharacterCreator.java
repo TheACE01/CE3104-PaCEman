@@ -1,13 +1,17 @@
 package creators;
 
+import characters.Bashful;
+import characters.Pokey;
 import characters.Shadow;
+import characters.Speedy;
+import dataStructures.Quadrant;
 import dataStructures.Structures;
 import graphics.Skins;
 import interfaces.Ghost;
 import interfaces.Item;
 import interfaces.Obstacle;
-import items.PacDot;
-import items.Wall;
+import items.*;
+import main.Game;
 
 
 import java.awt.*;
@@ -24,40 +28,43 @@ public class CharacterCreator {
     Obstacle entD; //walls
 
     private Skins tex;
+    private Game game;
 
-    public CharacterCreator(Skins tex){
+    public CharacterCreator(Skins tex, Game game){
         this.tex = tex;
+        this.game = game;
 
     }
 
 
     public void tick(){
-        //B class
-        for(int i = 0; i < ghosts.size(); i++){
-            entB = ghosts.get(i);
 
-            entB.tick();
-        }
         //C class
         for(int i = 0; i < ec.size(); i++){
             entC = ec.get(i);
 
             entC.tick();
         }
-
-    }
-    public void render(Graphics g){
         //B class
         for(int i = 0; i < ghosts.size(); i++){
             entB = ghosts.get(i);
 
-            entB.render(g);
+            entB.tick();
         }
+
+    }
+    public void render(Graphics g){
         //C class
         for(int i = 0; i < ec.size(); i++){
             entC = ec.get(i);
 
             entC.render(g);
+        }
+        //B class
+        for(int i = 0; i < ghosts.size(); i++){
+            entB = ghosts.get(i);
+
+            entB.render(g);
         }
     }
 
@@ -75,19 +82,53 @@ public class CharacterCreator {
         ec.remove(entity);
     }
 
-    public void createGhost(){
-        //here we add the specific ghost
-        //now i put some ghost for test
-        addEntity(new Shadow(200,0,tex));
-        addEntity(new Shadow(500,0,tex));
+
+    public void createShadow(){
+        addEntity(new Shadow(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
+    }
+    public void createBashful(){
+        addEntity(new Bashful(Structures.ghostGraph[31].getX(),Structures.ghostGraph[31].getY(),tex, game));
+    }
+    public void createPokey(){
+        addEntity(new Pokey(Structures.ghostGraph[30].getX(),Structures.ghostGraph[30].getY(),tex, game));
+    }
+    public void createSpeedy(){
+        addEntity(new Speedy(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
     }
     public void createPacDots(){
         //put pac dots in the map
         for(int i = 0; i < Structures.director.length; i++){
-            addEntity(new PacDot(Structures.director[i].getX(),Structures.director[i].getY(),tex));
-
+            Quadrant q = Structures.director[i];
+            if(q.getQuadrant() == 0){
+                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                continue;
+            }
+            if(q.getQuadrant() == 143){
+                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                continue;
+            }
+            if(q.getQuadrant() == 165){
+                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                continue;
+            }
+            if(q.getQuadrant() == 20){
+                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                continue;
+            }
+            else{
+                addEntity(new PacDot(q.getX(),q.getY(),tex));
+            }
         }
+    }
 
+    public void createAppleItem(int x, int y){
+        addEntity(new Apple(x, y, tex));
+    }
+    public void createBananaItem(int x, int y){
+        addEntity(new Banana(x, y, tex));
+    }
+    public void createCherryItem(int x, int y){
+        addEntity(new Cherry(x, y, tex));
     }
 
 
@@ -186,6 +227,9 @@ public class CharacterCreator {
         ed.add(new Wall(47*19,(50*10),47*2,50*2));
 
         ed.add(new Wall(47*21,(50*11),47*4,50));
+
+        ed.add(new Wall(47*10,(50*6),47*3,50));
+
 
     }
 }

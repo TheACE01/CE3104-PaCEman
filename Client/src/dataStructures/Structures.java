@@ -116,6 +116,122 @@ public class Structures {
             new Quadrant(163, 1128, 600), new Quadrant(164, 1128, 600),
             new Quadrant(165, 1175, 600)};
 
+    public static GhostNode ghostGraph[] = {
+            new GhostNode(94, 100, "Node_0", "None", "Node_5", "Node_1", "None"),
+            new GhostNode(235, 100, "Node_1", "None", "Node_2", "Node_23", "Node_0"),
+            new GhostNode(235, 200, "Node_2", "Node_1", "None", "Node_20", "Node_3"),
+            new GhostNode(188, 200, "Node_3", "None", "Node_4", "Node_2", "None"),
+            new GhostNode(188, 350, "Node_4", "Node_3", "Node_8", "None", "Node_5"),
+            new GhostNode(94, 350, "Node_5", "Node_0", "Node_6", "Node_4", "None"),
+            new GhostNode(94, 500, "Node_6", "Node_5", "Node_9", "Node_7", "None"),
+            new GhostNode(188, 500, "Node_7", "Node_8", "None", "None", "Node_6"),
+            new GhostNode(188, 400, "Node_8", "Node_4", "Node_7", "Node_15", "None"),
+            new GhostNode(94, 600, "Node_9", "Node_6", "None", "Node_10", "None"),
+            new GhostNode(282, 600, "Node_10", "Node_11", "None", "Node_13", "Node_9"),
+            new GhostNode(282, 500, "Node_11", "None", "Node_10", "Node_12", "None"),
+            new GhostNode(376, 500, "Node_12", "Node_16", "None", "Node_14", "Node_11"),
+            new GhostNode(470, 600, "Node_13", "Node_14", "None", "Node_36", "Node_10"),
+            new GhostNode(470, 500, "Node_14", "None", "Node_13", "Node_33", "Node_12"),
+            new GhostNode(282, 400, "Node_15", "Node_18", "None", "Node_16", "Node_8"),
+            new GhostNode(376, 400, "Node_16", "None", "Node_12", "Node_17", "Node_15"),
+
+            new GhostNode(423, 400, "Node_17", "Node_19", "None", "None", "Node_16"),
+
+            new GhostNode(282, 300, "Node_18", "Node_20", "Node_15", "Node_19", "None"),
+
+            new GhostNode(423, 300, "Node_19", "Node_21", "Node_17", "None", "Node_18"),
+
+            new GhostNode(282, 200, "Node_20", "None", "Node_18", "Node_22", "Node_2"),
+
+            new GhostNode(423, 250, "Node_21", "Node_22", "Node_19", "Node_28", "None"),
+
+            new GhostNode(423, 200, "Node_22", "Node_23", "Node_21", "None", "Node_20"),
+
+            new GhostNode(423, 100, "Node_23", "None", "Node_22", "Node_24", "Node_1"),
+
+            new GhostNode(517, 100, "Node_24", "None", "Node_25", "None", "Node_23"),
+
+            new GhostNode(517, 150, "Node_25", "Node_24", "None", "Node_26", "None"),
+
+            new GhostNode(705, 150, "Node_26", "Node_27", "Node_41", "None", "Node_25"),
+
+            new GhostNode(705, 100, "Node_27", "None", "Node_26", "Node_43", "None"),
+
+            new GhostNode(564, 250, "Node_28", "None", "Node_29", "Node_40", "Node_21"),
+
+            new GhostNode(564, 350, "Node_29", "Node_28", "None", "Node_30", "Node_31"),
+
+            new GhostNode(611, 350, "Node_30", "None", "None", "None", "Node_29"),
+
+            new GhostNode(517, 350, "Node_31", "None", "None", "Node_29", "None"),
+
+            new GhostNode(517, 450, "Node_32", "None", "Node_33", "Node_34", "None"),
+
+            new GhostNode(517, 500, "Node_33", "Node_32", "None", "None", "Node_14"),
+
+            new GhostNode(705, 450, "Node_34", "Node_40", "None", "Node_39", "Node_32"),
+
+            new GhostNode(611, 550, "Node_35", "None", "Node_36", "Node_37", "None"),
+
+            new GhostNode(611, 600, "Node_36", "Node_35", "None", "None", "Node_13"),
+
+            new GhostNode(752, 550, "Node_37", "Node_39", "Node_38", "None", "Node_35"),
+
+            new GhostNode(752, 600, "Node_38", "Node_37", "None", "Node_57", "None"),
+
+            new GhostNode(752, 450, "Node_39", "None", "Node_37", "None", "Node_34"),
+
+            new GhostNode(705, 250, "Node_40", "Node_41", "Node_34", "None", "Node_28"),
+
+            new GhostNode(705, 200, "Node_41", "Node_26", "Node_40", "Node_42", "None"),
+
+            new GhostNode(799, 200, "Node_42", "None", "Node_55", "Node_44", "Node_41"),
+
+            new GhostNode(940, 100, "Node_43", "None", "Node_44", "Node_45", "Node_27"),
+
+            new GhostNode(940, 200, "Node_44", "Node_43", "None", "Node_46", "Node_42"),
+
+            new GhostNode(1034, 100, "Node_45", "None", "Node_46", "Node_47", "Node_43"),
+
+            new GhostNode(1034, 200, "Node_46", "Node_45", "None", "Node_49", "Node_44"),
+
+            new GhostNode(1175, 100, "Node_47", "None", "Node_48", "None", "Node_45"),
+
+            new GhostNode(1175, 200, "Node_48", "Node_47", "Node_63", "None", "Node_49"),
+
+            new GhostNode(1081, 200, "Node_49", "None", "Node_50", "Node_48", "Node_46"),
+
+            new GhostNode(1081, 300, "Node_50", "Node_49", "None", "None", "Node_51"),
+
+            new GhostNode(1034, 300, "Node_51", "None", "Node_62", "Node_50", "Node_52"),
+
+            new GhostNode(893, 300, "Node_52", "None", "Node_53", "Node_51", "None"),
+
+            new GhostNode(893, 350, "Node_53", "Node_52", "None", "None", "Node_54"),
+
+            new GhostNode(846, 350, "Node_54", "None", "Node_56", "Node_53", "Node_55"),
+
+            new GhostNode(799, 350, "Node_55", "Node_42", "None", "Node_54", "None"),
+
+            new GhostNode(846, 450, "Node_56", "Node_54", "Node_57", "Node_64", "None"),
+
+            new GhostNode(846, 600, "Node_57", "Node_56", "None", "Node_59", "Node_38"),
+
+            new GhostNode(987, 500, "Node_58", "Node_64", "None", "Node_60", "None"),
+
+            new GhostNode(1175, 600, "Node_59", "Node_60", "None", "None", "Node_57"),
+
+            new GhostNode(1175, 500, "Node_60", "Node_63", "Node_59", "None", "Node_58"),
+
+            new GhostNode(987, 400, "Node_61", "None", "Node_64", "Node_62", "None"),
+
+            new GhostNode(1034, 400, "Node_62", "Node_51", "None", "Node_63", "Node_61"),
+
+            new GhostNode(1175, 400, "Node_63", "Node_48", "Node_60", "None", "Node_62"),
+
+            new GhostNode(987, 450, "Node_64", "Node_61", "Node_58", "None", "Node_56"),
+    };
+
 
     public static int getPacDotQuadrant(Item pacDot){
         for(int i = 0; i < director.length; i++){
