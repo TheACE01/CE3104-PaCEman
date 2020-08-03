@@ -2,9 +2,9 @@ package Physics;
 
 
 
+import characters.Ghost;
+import items.Item;
 import characters.PacMan;
-import interfaces.Ghost;
-import interfaces.Item;
 import interfaces.Obstacle;
 import main.Game;
 import music.Sound;
@@ -58,32 +58,32 @@ public class Collisions {
         }
         return false;
     }
-    public static void ghostCollison(PacMan pacman, LinkedList<Ghost> ghosts, Game game) {
-        for (int i = 0; i < ghosts.size(); i++) {
-            if (pacman.getBounds().intersects(ghosts.get(i).getPosBounds())) {
+    public static void ghostCollison(PacMan pacman, LinkedList<Ghost> ghostInterfaces, Game game) {
+        for (int i = 0; i < ghostInterfaces.size(); i++) {
+            if (pacman.getBounds().intersects(ghostInterfaces.get(i).getPosBounds())) {
 
                 if(game.isEnergizerOn()){
                     //System.out.println("ghost Killed");
 
                     Sound.play("Resources/pacman_eatghost.wav");
 
-                    if(ghosts.get(i).getGhostID().equals("shadow")){
-                        ghosts.remove(i);
+                    if(ghostInterfaces.get(i).getGhostID().equals("shadow")){
+                        ghostInterfaces.remove(i);
                         game.getC().createShadow();
                         break;
                     }
-                    if(ghosts.get(i).getGhostID().equals("bashful")){
-                        ghosts.remove(i);
+                    if(ghostInterfaces.get(i).getGhostID().equals("bashful")){
+                        ghostInterfaces.remove(i);
                         game.getC().createBashful();
                         break;
                     }
-                    if(ghosts.get(i).getGhostID().equals("pokey")){
-                        ghosts.remove(i);
+                    if(ghostInterfaces.get(i).getGhostID().equals("pokey")){
+                        ghostInterfaces.remove(i);
                         game.getC().createPokey();
                         break;
                     }
-                    if(ghosts.get(i).getGhostID().equals("speedy")){
-                        ghosts.remove(i);
+                    if(ghostInterfaces.get(i).getGhostID().equals("speedy")){
+                        ghostInterfaces.remove(i);
                         game.getC().createSpeedy();
                         break;
                     }

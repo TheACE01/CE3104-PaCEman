@@ -9,7 +9,9 @@ import main.Game;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class PacMan extends GameObject{
+public class PacMan {
+
+    private double x, y;
 
     private double velX = 0;
     private double velY = 0;
@@ -32,7 +34,8 @@ public class PacMan extends GameObject{
     private Animations animR, animL, animU, animD, animRs, animLs, animUs, animDs;
 
     public PacMan(double x, double y, Skins tex, Game game){
-        super(x, y);
+        this.x = x;
+        this.y = y;
         this.game = game;
         this.tex = tex;
 

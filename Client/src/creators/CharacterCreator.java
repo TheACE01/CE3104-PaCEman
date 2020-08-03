@@ -1,14 +1,9 @@
 package creators;
 
-import characters.Bashful;
-import characters.Pokey;
-import characters.Shadow;
-import characters.Speedy;
+import characters.*;
 import dataStructures.Quadrant;
 import dataStructures.Structures;
 import graphics.Skins;
-import interfaces.Ghost;
-import interfaces.Item;
 import interfaces.Obstacle;
 import items.*;
 import main.Game;
@@ -39,12 +34,6 @@ public class CharacterCreator {
 
     public void tick(){
 
-        //C class
-        for(int i = 0; i < ec.size(); i++){
-            entC = ec.get(i);
-
-            entC.tick();
-        }
         //B class
         for(int i = 0; i < ghosts.size(); i++){
             entB = ghosts.get(i);
@@ -84,43 +73,48 @@ public class CharacterCreator {
 
 
     public void createShadow(){
-        addEntity(new Shadow(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
+        addEntity(new ShadowGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
     }
+
     public void createBashful(){
-        addEntity(new Bashful(Structures.ghostGraph[31].getX(),Structures.ghostGraph[31].getY(),tex, game));
+        addEntity(new BashfulGhost(Structures.ghostGraph[31].getX(),Structures.ghostGraph[31].getY(),tex, game));
     }
+
     public void createPokey(){
-        addEntity(new Pokey(Structures.ghostGraph[30].getX(),Structures.ghostGraph[30].getY(),tex, game));
+        addEntity(new PokeyGhost(Structures.ghostGraph[30].getX(),Structures.ghostGraph[30].getY(),tex, game));
     }
+
     public void createSpeedy(){
-        addEntity(new Speedy(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
+        addEntity(new SpeedyGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
     }
+
+
     public void createPacDots(){
         //put pac dots in the map
         for(int i = 0; i < Structures.director.length; i++){
             Quadrant q = Structures.director[i];
             if(q.getQuadrant() == 0){
-                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
                 continue;
             }
             if(q.getQuadrant() == 143){
-                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
                 continue;
             }
             if(q.getQuadrant() == 165){
-                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
                 continue;
             }
             if(q.getQuadrant() == 20){
-                addEntity(new Energizer(q.getX(), q.getY(), tex));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
                 continue;
             }
             else{
-                addEntity(new PacDot(q.getX(),q.getY(),tex));
+                addEntity(new PacDot(q.getX(),q.getY(),tex, "pacDot"));
             }
         }
     }
-
+    /*
     public void createAppleItem(int x, int y){
         addEntity(new Apple(x, y, tex));
     }
@@ -130,6 +124,8 @@ public class CharacterCreator {
     public void createCherryItem(int x, int y){
         addEntity(new Cherry(x, y, tex));
     }
+
+     */
 
 
     public LinkedList<Ghost> getEb() {

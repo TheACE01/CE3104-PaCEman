@@ -1,13 +1,13 @@
 package main;
 
+import characters.Ghost;
+import items.Item;
 import characters.PacMan;
 import creators.CharacterCreator;
 import creators.InfoCreator;
 import dataStructures.DijkstraAlgorithm.DijkstraExec;
 import graphics.ImageLoader;
 import graphics.Skins;
-import interfaces.Ghost;
-import interfaces.Item;
 import interfaces.Obstacle;
 import user.MouseInput;
 import user.PacManControl;
@@ -396,8 +396,8 @@ public class Game extends Canvas implements Runnable {
 
         c.createShadow();
         c.createBashful();
-        c.createPokey();
-        c.createSpeedy();
+        //c.createPokey();
+        //c.createSpeedy();
 
         p.setDyingFlag(false);
     }

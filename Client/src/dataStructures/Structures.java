@@ -1,6 +1,6 @@
 package dataStructures;
 
-import interfaces.Item;
+import items.Item;
 
 public class Structures {
 

@@ -1,21 +1,10 @@
 package creators;
 
-import characters.Bashful;
-import characters.Pokey;
-import characters.Shadow;
-import characters.Speedy;
-import dataStructures.Quadrant;
-import dataStructures.Structures;
 import graphics.Skins;
-import interfaces.Ghost;
-import interfaces.Item;
-import interfaces.Obstacle;
-import items.*;
 import main.Game;
 
 
 import java.awt.*;
-import java.util.LinkedList;
 
 public class InfoCreator {
 
