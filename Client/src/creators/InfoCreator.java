@@ -66,16 +66,23 @@ public class InfoCreator {
 
     public void removeLives() {
         if(lives > 0) lives--;
+        game.getEncoder().setLives(lives);
     }
     public void addLives(){
         if(lives <3) lives++;
+        game.getEncoder().setLives(lives);
     }
 
     public void addScore(){
         score++;
+        game.getEncoder().setScore(score);
     }
     public void addLevel(){
         if(level <3) level++;
+        game.getEncoder().setLevel(level);
+    }
+    public int getLevel(){
+        return level;
     }
 
 }

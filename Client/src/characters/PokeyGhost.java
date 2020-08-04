@@ -26,6 +26,38 @@ public class PokeyGhost extends Ghost {
 
         ghostID = "pokey";
     }
+    public void tick() {
+
+        if(game.isEnergizerOn()){
+            hide();
+        }
+        else{
+            ghostMovement();
+        }
+        //movement
+        x += velX;
+        y += velY;
+
+        //encoding the pokey pos
+        game.getEncoder().setPokeyX(x);
+        game.getEncoder().setPokeyY(y);
+
+        if(game.isEnergizerOn()){
+            if(R) animRs.runAnimation();
+            if(L) animLs.runAnimation();
+            if(U) animUs.runAnimation();
+            if(D) animDs.runAnimation();
+        }
+        else{
+            if(R) animR.runAnimation();
+            if(L) animL.runAnimation();
+            if(U) animU.runAnimation();
+            if(D) animD.runAnimation();
+        }
+
+
+
+    }
     public void ghostMovement(){
         //update the ghostPath every time shadow is on a new ghostNode
         for(int gn = 0; gn < Structures.ghostGraph.length; gn++) {
@@ -52,7 +84,7 @@ public class PokeyGhost extends Ghost {
                     //Right
                     if(ghostPath.get(ghostNodeCont).equals("R")){
                         directionSwap();
-                        velX = 2;
+                        velX = boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -62,7 +94,7 @@ public class PokeyGhost extends Ghost {
                     //Left
                     if(ghostPath.get(ghostNodeCont).equals("L")){
                         directionSwap();
-                        velX = -2;
+                        velX = -boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -73,7 +105,7 @@ public class PokeyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("U")){
                         directionSwap();
                         velX = 0;
-                        velY = -2;
+                        velY = -boost;
                         ghostNodeCont++;
 
                         U = true;
@@ -83,7 +115,7 @@ public class PokeyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("D")){
                         directionSwap();
                         velX = 0;
-                        velY = 2;
+                        velY = boost;
                         ghostNodeCont++;
 
                         D = true;
@@ -203,7 +235,7 @@ public class PokeyGhost extends Ghost {
                     //Right
                     if(ghostPath.get(ghostNodeCont).equals("R")){
                         directionSwap();
-                        velX = 2;
+                        velX = boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -213,7 +245,7 @@ public class PokeyGhost extends Ghost {
                     //Left
                     if(ghostPath.get(ghostNodeCont).equals("L")){
                         directionSwap();
-                        velX = -2;
+                        velX = -boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -224,7 +256,7 @@ public class PokeyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("U")){
                         directionSwap();
                         velX = 0;
-                        velY = -2;
+                        velY = -boost;
                         ghostNodeCont++;
 
                         U = true;
@@ -234,7 +266,7 @@ public class PokeyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("D")){
                         directionSwap();
                         velX = 0;
-                        velY = 2;
+                        velY = boost;
                         ghostNodeCont++;
 
                         D = true;

@@ -69,6 +69,10 @@ public class SpeedyGhost extends Ghost {
         x += velX;
         y += velY;
 
+        //encoding the speedy pos
+        game.getEncoder().setSpeedyX(x);
+        game.getEncoder().setSpeedyY(y);
+
         if(game.isEnergizerOn()){
             if(R) animRs.runAnimation();
             if(L) animLs.runAnimation();
@@ -142,7 +146,7 @@ public class SpeedyGhost extends Ghost {
                     //Right
                     if(ghostPath.get(ghostNodeCont).equals("R")){
                         directionSwap();
-                        velX = 2;
+                        velX = boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -152,7 +156,7 @@ public class SpeedyGhost extends Ghost {
                     //Left
                     if(ghostPath.get(ghostNodeCont).equals("L")){
                         directionSwap();
-                        velX = -2;
+                        velX = -boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -163,7 +167,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("U")){
                         directionSwap();
                         velX = 0;
-                        velY = -2;
+                        velY = -boost;
                         ghostNodeCont++;
 
                         U = true;
@@ -173,7 +177,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("D")){
                         directionSwap();
                         velX = 0;
-                        velY = 2;
+                        velY = boost;
                         ghostNodeCont++;
 
                         D = true;
@@ -225,7 +229,7 @@ public class SpeedyGhost extends Ghost {
                     //Right
                     if(ghostPath.get(ghostNodeCont).equals("R")){
                         directionSwap();
-                        velX = 2;
+                        velX = boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -235,7 +239,7 @@ public class SpeedyGhost extends Ghost {
                     //Left
                     if(ghostPath.get(ghostNodeCont).equals("L")){
                         directionSwap();
-                        velX = -2;
+                        velX = -boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -246,7 +250,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("U")){
                         directionSwap();
                         velX = 0;
-                        velY = -2;
+                        velY = -boost;
                         ghostNodeCont++;
 
                         U = true;
@@ -256,7 +260,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("D")){
                         directionSwap();
                         velX = 0;
-                        velY = 2;
+                        velY = boost;
                         ghostNodeCont++;
 
                         D = true;
@@ -309,7 +313,7 @@ public class SpeedyGhost extends Ghost {
                     //Right
                     if(ghostPath.get(ghostNodeCont).equals("R")){
                         directionSwap();
-                        velX = 2;
+                        velX = boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -319,7 +323,7 @@ public class SpeedyGhost extends Ghost {
                     //Left
                     if(ghostPath.get(ghostNodeCont).equals("L")){
                         directionSwap();
-                        velX = -2;
+                        velX = -boost;
                         velY = 0;
                         ghostNodeCont++;
 
@@ -330,7 +334,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("U")){
                         directionSwap();
                         velX = 0;
-                        velY = -2;
+                        velY = -boost;
                         ghostNodeCont++;
 
                         U = true;
@@ -340,7 +344,7 @@ public class SpeedyGhost extends Ghost {
                     if(ghostPath.get(ghostNodeCont).equals("D")){
                         directionSwap();
                         velX = 0;
-                        velY = 2;
+                        velY = boost;
                         ghostNodeCont++;
 
                         D = true;

@@ -64,6 +64,10 @@ public class PacMan {
         if(!game.getResetCountFlag()){
             x += velX;
             y += velY;
+
+            //update the encoder
+            game.getEncoder().setPacmanX(x);
+            game.getEncoder().setPacmanY(y);
         }
 
 

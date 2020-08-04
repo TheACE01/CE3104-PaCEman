@@ -9,12 +9,14 @@ public class Item {
     public int x, y;
     public String id;
     public Skins tex;
+    public int quadrant;
 
-    public Item(int x, int y, Skins tex, String id) {
+    public Item(int x, int y, Skins tex, String id, int quadrant) {
         this.x = x;
         this.y = y;
         this.tex = tex;
         this.id = id;
+        this.quadrant = quadrant;
 
     }
     public void render(Graphics g){
@@ -36,6 +38,14 @@ public class Item {
 
     public Rectangle getBounds(){
         return new Rectangle((int)x + 19, (int)y + 21,8,8);
+    }
+
+    public int getQuadrant() {
+        return quadrant;
+    }
+
+    public void setQuadrant(int quadrant) {
+        this.quadrant = quadrant;
     }
 }
 

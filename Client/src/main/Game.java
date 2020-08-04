@@ -1,6 +1,8 @@
 package main;
 
 import characters.Ghost;
+import conections.Encoder;
+import conections.StreamingClient;
 import items.Item;
 import characters.PacMan;
 import creators.CharacterCreator;
@@ -74,6 +76,11 @@ public class Game extends Canvas implements Runnable {
         return infoCreator;
     }
 
+    public Encoder getEncoder() {
+        return encoder;
+    }
+
+
     public static enum STATE{
         MENU,
         PLAY
@@ -82,6 +89,7 @@ public class Game extends Canvas implements Runnable {
 
     public static Boolean startFlag = true;
 
+    private Encoder encoder;
 
 
     public void init(){
@@ -114,7 +122,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void playInit(){
-
+        encoder = new Encoder();
         tex = new Skins(this);
         p = new PacMan(564, 450, tex,this);
         c = new CharacterCreator(tex, this);
@@ -134,11 +142,13 @@ public class Game extends Canvas implements Runnable {
         router.initGraph();
 
         //adding the ghost for test
-
+        /*
         c.createShadow();
         c.createBashful();
         c.createPokey();
         c.createSpeedy();
+
+         */
 
         //initialize linked lists
         eb = c.getEb();
@@ -203,6 +213,7 @@ public class Game extends Canvas implements Runnable {
                 timer += 1000;
 
 
+
                 //check if pac man eats any energizer
                 if(energizerOn && refreshTarget == 7 && state == STATE.PLAY){
                     //System.out.println(refreshTarget);
@@ -245,6 +256,14 @@ public class Game extends Canvas implements Runnable {
         if(state == STATE.PLAY && startFlag){
             p.tick();
             c.tick();
+
+            if(infoCreator.getLives() == 0 || infoCreator.getLevel() == 3){
+                state = STATE.MENU;
+                startFlag = false;
+            }
+
+            //update the encoder object
+            updateEncoder();
         }
 
     }
@@ -302,6 +321,30 @@ public class Game extends Canvas implements Runnable {
                 p.setD(true);
                 p.setVelY(3);
             }
+
+            else if(key == KeyEvent.VK_1){
+                c.createShadow();
+            }
+            else if(key == KeyEvent.VK_2){
+                c.createBashful();
+            }
+            else if(key == KeyEvent.VK_3){
+                c.createPokey();
+            }
+            else if(key == KeyEvent.VK_4){
+                c.createSpeedy();
+            }
+
+            else if(key == KeyEvent.VK_5){
+                c.GhostBoost(1.5);
+            }
+            else if(key == KeyEvent.VK_6){
+                c.GhostBoost(2.5);
+            }
+            else if(key == KeyEvent.VK_7){
+                levelUp();
+            }
+
         }
 
     }
@@ -394,10 +437,6 @@ public class Game extends Canvas implements Runnable {
         p.setX(47*12);
         p.setY(50*9);
 
-        c.createShadow();
-        c.createBashful();
-        //c.createPokey();
-        //c.createSpeedy();
 
         p.setDyingFlag(false);
     }
@@ -429,5 +468,63 @@ public class Game extends Canvas implements Runnable {
 
     public void setResetCountFlag(Boolean resetCountFlag) {
         this.resetCountFlag = resetCountFlag;
+    }
+
+    public void updateEncoder(){
+        //sending messages to the observer next to the characters ticks
+
+
+        String encodedCharacters = Double.toString(encoder.getPacmanX()) +
+                "," + Double.toString(encoder.getPacmanY()) +
+
+                "," + Double.toString(encoder.getShadowX()) +
+                "," + Double.toString(encoder.getShadowY()) +
+
+
+                "," + Double.toString(encoder.getBashfulX()) +
+                "," + Double.toString(encoder.getBashfulY()) +
+
+
+                "," + Double.toString(encoder.getPokeyX()) +
+                "," + Double.toString(encoder.getPokeyY()) +
+
+                "," + Double.toString(encoder.getSpeedyX()) +
+                "," + Double.toString(encoder.getSpeedyY()) +
+
+                "," + Integer.toString(encoder.getScore()) +
+
+                "," + Integer.toString(encoder.getLevel()) +
+
+                "," + Integer.toString(encoder.getRemoveItem()) +
+
+                "," + Integer.toString(encoder.getNewItem()) +
+
+                "," + Integer.toString(encoder.getLives());
+
+
+
+        StreamingClient c = new StreamingClient(6000, encodedCharacters);
+        Thread t = new Thread(c);
+        t.start();
+
+
+    }
+
+    public String encodeItems(LinkedList<Item> ec, int cont){
+        if(cont == (ec.size() -1)){
+            return ec.get(cont).id + "-" + ec.get(cont).quadrant;
+        }
+        else{
+
+            return ec.get(cont).id + "-" + ec.get(cont).quadrant + "," + encodeItems(ec, cont + 1);
+        }
+    }
+    public void levelUp(){
+        infoCreator.addLevel();
+        ec.clear();
+        eb.clear();
+        p.setX(564);
+        p.setY(450);
+        c.createPacDots();
     }
 }

@@ -5,6 +5,7 @@ public class Quadrant {
     private int quadrant;
     private int x;
     private int y;
+    private int item;
 
     public Quadrant(int quadrant, int x, int y){
         this.quadrant = quadrant;

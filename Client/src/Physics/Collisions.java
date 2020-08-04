@@ -20,19 +20,29 @@ public class Collisions {
 
                 if(item.get(i).getItemName().equals("pacDot")){
                     //System.out.println("Pac dot Quadrant: " + Structures.getPacDotQuadrant(item.get(i)));
+                    //update the encoder
+                    game.getEncoder().setRemoveItem(item.get(i).quadrant);
+
+
                     //delete the pac dot
                     item.remove(i);
                     game.getInfoCreator().addScore();
+
+
                     //play the sound
                     Sound.play("Resources/eat_pacDot.wav");
                     continue;
                 }
                 if(item.get(i).getItemName().equals("energizer")){
                     //System.out.println("energizer");
+                    //update the encoder
+                    game.getEncoder().setRemoveItem(item.get(i).quadrant);
+
                     //delete the energizer
                     item.remove(i);
 
-                    Sound.play("Resources/ssj2.wav");
+
+                    Sound.play("Resources/shenron.wav");
 
                     //turn on the energizer flag
                     game.setEnergizerOn(true);
@@ -69,32 +79,65 @@ public class Collisions {
 
                     if(ghostInterfaces.get(i).getGhostID().equals("shadow")){
                         ghostInterfaces.remove(i);
-                        game.getC().createShadow();
+
+                        //reset encoder for shadow
+                        game.getEncoder().setShadowX(0);
+                        game.getEncoder().setShadowY(0);
+
+                        //game.getC().createShadow();
                         break;
                     }
                     if(ghostInterfaces.get(i).getGhostID().equals("bashful")){
                         ghostInterfaces.remove(i);
-                        game.getC().createBashful();
+
+                        //reset encoder for bashful
+                        game.getEncoder().setBashfulX(0);
+                        game.getEncoder().setBashfulY(0);
+
+                        //game.getC().createBashful();
                         break;
                     }
                     if(ghostInterfaces.get(i).getGhostID().equals("pokey")){
                         ghostInterfaces.remove(i);
-                        game.getC().createPokey();
+
+                        //reset encoder for pokey
+                        game.getEncoder().setPokeyX(0);
+                        game.getEncoder().setPokeyY(0);
+
+                        //game.getC().createPokey();
                         break;
                     }
                     if(ghostInterfaces.get(i).getGhostID().equals("speedy")){
                         ghostInterfaces.remove(i);
-                        game.getC().createSpeedy();
+
+                        //reset encoder for speedy
+                        game.getEncoder().setSpeedyX(0);
+                        game.getEncoder().setSpeedyY(0);
+
+                        //game.getC().createSpeedy();
                         break;
                     }
 
                 }
                 else{
-                    //Sound.play("Resources/pacman_death.wav");
-                    //game.getInfoCreator().removeLives();
-                    //game.eb.clear();
-                    //pacman.setDyingFlag(true);
-                    //game.setResetCountFlag(true);
+                    Sound.play("Resources/pacman_death.wav");
+                    game.getInfoCreator().removeLives();
+
+                    game.getEncoder().setShadowX(0);
+                    game.getEncoder().setShadowY(0);
+
+                    game.getEncoder().setBashfulX(0);
+                    game.getEncoder().setBashfulY(0);
+
+                    game.getEncoder().setPokeyX(0);
+                    game.getEncoder().setPokeyY(0);
+
+                    game.getEncoder().setSpeedyX(0);
+                    game.getEncoder().setSpeedyY(0);
+
+                    game.eb.clear();
+                    pacman.setDyingFlag(true);
+                    game.setResetCountFlag(true);
 
 
                 }

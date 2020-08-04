@@ -23,11 +23,11 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Observer_Sockets" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -94,7 +94,8 @@
       <workItem from="1596207752441" duration="21569000" />
       <workItem from="1596245940058" duration="50000" />
       <workItem from="1596250426770" duration="932000" />
-      <workItem from="1596478065234" duration="5300000" />
+      <workItem from="1596478065234" duration="6158000" />
+      <workItem from="1596491576999" duration="23800000" />
     </task>
     <servers />
   </component>

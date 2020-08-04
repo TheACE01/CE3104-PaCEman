@@ -15,7 +15,7 @@ public class Ghost {
 
     public double x, y;
     public double velX, velY;
-    public double boost;
+    public double boost = 2;
     public boolean R, L, U, D;
     public List<String> ghostPath = new ArrayList<>();
     public Game game;
@@ -24,6 +24,7 @@ public class Ghost {
     public int ghostNodeCont = 0;
     public Animations animR, animL, animU, animD, animRs, animLs, animUs, animDs;
     public String ghostID;
+
 
     public Ghost(double x, double y, Skins tex, Game game) {
         this.x = x;
@@ -61,6 +62,8 @@ public class Ghost {
             if(U) animU.runAnimation();
             if(D) animD.runAnimation();
         }
+
+
 
     }
 
@@ -193,4 +196,11 @@ public class Ghost {
     }
 
 
+    public double getBoost() {
+        return boost;
+    }
+
+    public void setBoost(double boost) {
+        this.boost = boost;
+    }
 }

@@ -19,11 +19,16 @@ public class CharacterCreator {
 
 
     Ghost entB; //ghosts
-    Item entC; //pac dots
+    Item entC; //items
     Obstacle entD; //walls
 
     private Skins tex;
     private Game game;
+
+    private ShadowGhost shadow;
+    private BashfulGhost bashful;
+    private PokeyGhost pokey;
+    private SpeedyGhost speedy;
 
     public CharacterCreator(Skins tex, Game game){
         this.tex = tex;
@@ -73,19 +78,23 @@ public class CharacterCreator {
 
 
     public void createShadow(){
-        addEntity(new ShadowGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
+        shadow = new ShadowGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game);
+        addEntity(shadow);
     }
 
     public void createBashful(){
-        addEntity(new BashfulGhost(Structures.ghostGraph[31].getX(),Structures.ghostGraph[31].getY(),tex, game));
+        bashful = new BashfulGhost(Structures.ghostGraph[31].getX(),Structures.ghostGraph[31].getY(),tex, game);
+        addEntity(bashful);
     }
 
     public void createPokey(){
-        addEntity(new PokeyGhost(Structures.ghostGraph[30].getX(),Structures.ghostGraph[30].getY(),tex, game));
+        pokey = new PokeyGhost(Structures.ghostGraph[30].getX(),Structures.ghostGraph[30].getY(),tex, game);
+        addEntity(pokey);
     }
 
     public void createSpeedy(){
-        addEntity(new SpeedyGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game));
+        speedy = new SpeedyGhost(Structures.ghostGraph[29].getX(),Structures.ghostGraph[29].getY(),tex, game);
+        addEntity(speedy);
     }
 
 
@@ -94,23 +103,23 @@ public class CharacterCreator {
         for(int i = 0; i < Structures.director.length; i++){
             Quadrant q = Structures.director[i];
             if(q.getQuadrant() == 0){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
                 continue;
             }
             if(q.getQuadrant() == 143){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
                 continue;
             }
             if(q.getQuadrant() == 165){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
                 continue;
             }
             if(q.getQuadrant() == 20){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer"));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
                 continue;
             }
             else{
-                addEntity(new PacDot(q.getX(),q.getY(),tex, "pacDot"));
+                addEntity(new PacDot(q.getX(),q.getY(),tex, "pacDot", q.getQuadrant()));
             }
         }
     }
@@ -228,4 +237,27 @@ public class CharacterCreator {
 
 
     }
+
+    public ShadowGhost getShadow() {
+        return shadow;
+    }
+
+    public BashfulGhost getBashful() {
+        return bashful;
+    }
+
+    public PokeyGhost getPokey() {
+        return pokey;
+    }
+
+    public SpeedyGhost getSpeedy() {
+        return speedy;
+    }
+
+    public void GhostBoost(double boost){
+        for(int i = 0; i < ghosts.size(); i++){
+            ghosts.get(i).setBoost(boost);
+        }
+    }
+
 }
