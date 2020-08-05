@@ -21,11 +21,13 @@ void *ReciveMessage(void * socket){
         char buffer[BUFFERSIZE]; // define the length of buffer, BUFFERSIZE is constansts.h file
         int x; // Indicate the end of menssage
         if ((x=read( new_socket , buffer, BUFFERSIZE))>0){
+        printf("%s\n", buffer);
+
             buffer[x]='\0'; // \0 is indicates the end
             fflush(stdout); // Is to clear the buffer
             Parse(buffer, new_socket);    // parse the mensage
         }
-        
+
         sleep(1);
     }
 
@@ -45,6 +47,8 @@ void *SendMessageFromAdministrator(void * socket){
             printf("Color: 1 Blinky, 2 Pinky, 3 Inky, 4 Clyde.\n");
             scanf("%s", message);//take data from console
             strcat(result, message); // concatenate strings
+            char fin[1] =".";
+            strcat(result, fin); // concatenate strings
             //printf("%s\n",result);
             send(sock , result , strlen(result) , 0 ); // send the data to client
         }
@@ -54,6 +58,8 @@ void *SendMessageFromAdministrator(void * socket){
             scanf("%s", message);
             strcat(result, message);
             //printf("%s\n",result);
+            char fin[1] =".";
+            strcat(result, fin); // concatenate strings
             send(sock , result , strlen(result) , 0 );
         }
         else if (opcion==3){
@@ -62,6 +68,8 @@ void *SendMessageFromAdministrator(void * socket){
             scanf("%s", message);
             strcat(result, message);
             //printf("%s\n",result);
+            char fin[1] =".";
+            strcat(result, fin); // concatenate strings
             send(sock , result , strlen(result) , 0 );
         }
         else if (opcion==4){
@@ -70,6 +78,8 @@ void *SendMessageFromAdministrator(void * socket){
             scanf("%s", message);
             strcat(result, message);
             printf("%s\n",result);
+            char fin[1] =".";
+            strcat(result, fin); // concatenate strings
             send(sock , result , strlen(result) , 0 );
         }
         else if (opcion==5){
@@ -79,6 +89,8 @@ void *SendMessageFromAdministrator(void * socket){
             game.valueOfPoints=atoi(message);
             strcat(result, message);
             printf("%s\n",result);
+            char fin[1] =".";
+            strcat(result, fin); // concatenate strings
             send(sock , result , strlen(result) , 0 );
         }
         else {
@@ -174,7 +186,7 @@ void Parse(char message[BUFFERSIZE], int socket){
         game.amountOfPoints=game.amountOfPoints+game.valueOfPoints;// add points
         if (CountOneInList()==0){
             if (game.level==3){ // ask if the level is the lastone
-                char messageToSend[20]="won,100";
+                char messageToSend[20]="won,100.";
                 send(socket , messageToSend , strlen(messageToSend) , 0 );
                 //printf("%s",messageToSend);
             }
@@ -185,6 +197,8 @@ void Parse(char message[BUFFERSIZE], int socket){
                 char levelAux[1];
                 sprintf(levelAux,"%d",game.level);//convert from int to string
                 strcat(messageToSend,levelAux);
+                char fin[1] =".";
+                strcat(messageToSend, fin); // indicate the end
                 send(socket , messageToSend , strlen(messageToSend) , 0 );
                 //printf("%d\n",game.level );
                 //printf("Mensaje: %s\n",messageToSend);
@@ -207,6 +221,8 @@ void Parse(char message[BUFFERSIZE], int socket){
         char lifesAux[3];
         sprintf(lifesAux,"%d", game.amountOfLifes);        
         strcat(messageToSend,lifesAux);
+        char fin[1] =".";
+        strcat(messageToSend, fin); // indicate the end
         send(socket , messageToSend , strlen(messageToSend) , 0 );
         //printf("Murió pacman\n");
     }
@@ -220,6 +236,8 @@ void Parse(char message[BUFFERSIZE], int socket){
         sprintf(lifesAux, "%d", game.amountOfLifes);
         strcat(messageToSend,lifesAux);
         game.amountOfPoints=0;
+        char fin[1] =".";
+        strcat(messageToSend, fin); // indicate the end
         send(socket , messageToSend , strlen(messageToSend) , 0 );
 
         //printf("Una Vida más\n");
