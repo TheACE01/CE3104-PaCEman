@@ -20,7 +20,7 @@ public class StreamingClient implements Runnable {
     @Override
     public void run() {
         //Host del servidor
-        final String HOST = "127.0.0.1";
+        final String HOST = "192.168.100.9";
         //Puerto del servidor
         DataOutputStream out;
 

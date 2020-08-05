@@ -141,15 +141,6 @@ public class Game extends Canvas implements Runnable {
         //initialize the graph structure
         router.initGraph();
 
-        //adding the ghost for test
-        /*
-        c.createShadow();
-        c.createBashful();
-        c.createPokey();
-        c.createSpeedy();
-
-         */
-
         //initialize linked lists
         eb = c.getEb();
         ec = c.getEc();
@@ -219,6 +210,9 @@ public class Game extends Canvas implements Runnable {
                     //System.out.println(refreshTarget);
                     refreshTarget = 0;
                     energizerOn = false;
+
+                    //update the encoder energizer flag
+                    encoder.setEnergizer(0);
                 }
                 if(energizerOn && refreshTarget < 7 && state == STATE.PLAY){
                     refreshTarget++;
@@ -257,12 +251,14 @@ public class Game extends Canvas implements Runnable {
             p.tick();
             c.tick();
 
-            if(infoCreator.getLives() == 0 || infoCreator.getLevel() == 3){
+            if(infoCreator.getLives() == 0 || infoCreator.getLevel() == 4){
+                //notify the observer
+                encoder.setState(-1);
                 state = STATE.MENU;
                 startFlag = false;
             }
 
-            //update the encoder object
+            //update the encoder object and notify the observer
             updateEncoder();
         }
 
@@ -474,8 +470,11 @@ public class Game extends Canvas implements Runnable {
         //sending messages to the observer next to the characters ticks
 
 
-        String encodedCharacters = Double.toString(encoder.getPacmanX()) +
+        String encodedCharacters =
+                //pac man state
+                Double.toString(encoder.getPacmanX()) +
                 "," + Double.toString(encoder.getPacmanY()) +
+
 
                 "," + Double.toString(encoder.getShadowX()) +
                 "," + Double.toString(encoder.getShadowY()) +
@@ -488,6 +487,7 @@ public class Game extends Canvas implements Runnable {
                 "," + Double.toString(encoder.getPokeyX()) +
                 "," + Double.toString(encoder.getPokeyY()) +
 
+
                 "," + Double.toString(encoder.getSpeedyX()) +
                 "," + Double.toString(encoder.getSpeedyY()) +
 
@@ -495,17 +495,21 @@ public class Game extends Canvas implements Runnable {
 
                 "," + Integer.toString(encoder.getLevel()) +
 
-                "," + Integer.toString(encoder.getRemoveItem()) +
+                "," + Integer.toString(encoder.getLives()) +
 
-                "," + Integer.toString(encoder.getNewItem()) +
+                "," + Integer.toString(encoder.getState()) +
 
-                "," + Integer.toString(encoder.getLives());
+                        "," + Integer.toString(encoder.getEnergizer());
+
+
 
 
 
         StreamingClient c = new StreamingClient(6000, encodedCharacters);
         Thread t = new Thread(c);
         t.start();
+
+
 
 
     }

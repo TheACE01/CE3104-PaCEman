@@ -68,6 +68,7 @@ public class PacMan {
             //update the encoder
             game.getEncoder().setPacmanX(x);
             game.getEncoder().setPacmanY(y);
+
         }
 
 
@@ -90,12 +91,16 @@ public class PacMan {
             if(L) animLs.runAnimation();
             if(U) animUs.runAnimation();
             if(D) animDs.runAnimation();
+
+
         }
         else{
             if(R) animR.runAnimation();
             if(L) animL.runAnimation();
             if(U) animU.runAnimation();
             if(D) animD.runAnimation();
+
+
         }
 
         //set up the new X and Y

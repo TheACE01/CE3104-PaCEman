@@ -21,7 +21,7 @@ public class Collisions {
                 if(item.get(i).getItemName().equals("pacDot")){
                     //System.out.println("Pac dot Quadrant: " + Structures.getPacDotQuadrant(item.get(i)));
                     //update the encoder
-                    game.getEncoder().setRemoveItem(item.get(i).quadrant);
+
 
 
                     //delete the pac dot
@@ -35,8 +35,9 @@ public class Collisions {
                 }
                 if(item.get(i).getItemName().equals("energizer")){
                     //System.out.println("energizer");
-                    //update the encoder
-                    game.getEncoder().setRemoveItem(item.get(i).quadrant);
+
+                    //update the encoder energizer flag
+                    game.getEncoder().setEnergizer(1);
 
                     //delete the energizer
                     item.remove(i);

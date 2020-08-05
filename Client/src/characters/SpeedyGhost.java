@@ -102,6 +102,7 @@ public class SpeedyGhost extends Ghost {
             if(L) animLs.drawAnimation(g,x,y,0);
             if(U) animUs.drawAnimation(g,x,y,0);
             if(D) animDs.drawAnimation(g,x,y,0);
+
         }
         else{
             if(game.isChaiseSpeedy()){
@@ -116,6 +117,7 @@ public class SpeedyGhost extends Ghost {
                 if(U) animU.drawAnimation(g,x,y,0);
                 if(D) animD.drawAnimation(g,x,y,0);
             }
+
 
         }
 

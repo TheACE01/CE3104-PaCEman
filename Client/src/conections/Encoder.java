@@ -5,24 +5,32 @@ public class Encoder {
     private double pacmanX;
     private double pacmanY;
 
+
     private double shadowX;
     private double shadowY;
+
 
     private double bashfulX;
     private double bashfulY;
 
+
     private double pokeyX;
     private double pokeyY;
 
+
     private double speedyX;
     private double SpeedyY;
+
 
     private int score;
     private int level = 1;
     private int lives = 3;
 
-    private int removeItem;
-    private int newItem;
+    private int state = 1;
+
+    private int energizer = 0;
+
+
 
 
     public double getPacmanX() {
@@ -121,27 +129,27 @@ public class Encoder {
         this.level = level;
     }
 
-    public int getRemoveItem() {
-        return removeItem;
-    }
-
-    public void setRemoveItem(int removeItem) {
-        this.removeItem = removeItem;
-    }
-
-    public int getNewItem() {
-        return newItem;
-    }
-
-    public void setNewItem(int newItem) {
-        this.newItem = newItem;
-    }
-
     public int getLives() {
         return lives;
     }
 
     public void setLives(int lives) {
         this.lives = lives;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getEnergizer() {
+        return energizer;
+    }
+
+    public void setEnergizer(int energizer) {
+        this.energizer = energizer;
     }
 }

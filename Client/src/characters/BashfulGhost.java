@@ -44,12 +44,16 @@ public class BashfulGhost extends Ghost {
             if(L) animLs.runAnimation();
             if(U) animUs.runAnimation();
             if(D) animDs.runAnimation();
+
+
         }
         else{
             if(R) animR.runAnimation();
             if(L) animL.runAnimation();
             if(U) animU.runAnimation();
             if(D) animD.runAnimation();
+
+
         }
 
 
