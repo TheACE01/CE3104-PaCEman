@@ -18,8 +18,8 @@ public class PacDot extends Item {
      * @param id PacDot identifier
      * @param quadrant Number of quadrant
      */
-    public PacDot(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
-        super(x, y, tex, id, quadrant);
+    public PacDot(Integer x, Integer y, Skins tex, String id, Integer quadrant, Integer value) {
+        super(x, y, tex, id, quadrant, value);
     }
 
     /**

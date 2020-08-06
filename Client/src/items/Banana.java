@@ -19,8 +19,9 @@ public class Banana extends Item {
      * @param id Banana identifier
      * @param quadrant Number of quadrant
      */
-    public Banana(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
-        super(x, y, tex, id, quadrant);
+    public Banana(Integer x, Integer y, Skins tex, String id, Integer quadrant, Integer value) {
+        super(x, y, tex, id, quadrant, value);
+
     }
 
     /**

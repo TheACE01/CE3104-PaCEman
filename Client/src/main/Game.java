@@ -190,10 +190,10 @@ public class Game extends Canvas implements Runnable {
         obstacles = c.getWalls();
 
         //initialize the client
+
         client = new Client("localhost", 8081, this);
         clientThread = new Thread(client);
         clientThread.start();
-
     }
 
     /**
@@ -318,11 +318,13 @@ public class Game extends Canvas implements Runnable {
                 encoder.setState(-1);
 
                 //stop the client socket
+                /*
                 try {
                     clientThread.join();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                 */
 
                 state = STATE.MENU;
                 startFlag = false;
@@ -419,7 +421,7 @@ public class Game extends Canvas implements Runnable {
                 c.GhostBoost(2.5);
             }
             else if(key == KeyEvent.VK_7){
-                levelUp();
+                c.createFruit(200);
             }
 
         }
@@ -656,7 +658,7 @@ public class Game extends Canvas implements Runnable {
 
         //3: Create fruit request
         if(requestName.equals("fruit")){
-            c.createApple(requestValue);
+            c.createFruit(requestValue);
         }
 
         //4: Level up request
@@ -674,9 +676,5 @@ public class Game extends Canvas implements Runnable {
             c.GhostBoost(requestValue);
         }
 
-        //7: Points request
-        if(requestName.equals("points")){
-            infoCreator.addScore(requestValue);
-        }
     }
 }

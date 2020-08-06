@@ -11,6 +11,7 @@ import main.Game;
 
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Is used to create and render ghosts. Create pac dots, energizers, fruits, walls and may control the
@@ -146,24 +147,24 @@ public class CharacterCreator {
 
             //Creating the energizers
             if(q.getQuadrant() == 0){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant(), 0));
                 continue;
             }
             if(q.getQuadrant() == 140){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant(), 0));
                 continue;
             }
             if(q.getQuadrant() == 165){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant(), 0));
                 continue;
             }
             if(q.getQuadrant() == 20){
-                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant()));
+                addEntity(new Energizer(q.getX(), q.getY(), tex, "energizer", q.getQuadrant(), 0));
                 continue;
             }
             else{
                 //creating the pac dots
-                addEntity(new PacDot(q.getX(),q.getY(),tex, "pacDot", q.getQuadrant()));
+                addEntity(new PacDot(q.getX(),q.getY(),tex, "pacDot", q.getQuadrant(), 10));
             }
         }
     }
@@ -177,22 +178,32 @@ public class CharacterCreator {
                 Integer energizerX = q.getX();
                 Integer energizerY = q.getY();
                 //Add the pill to the Linked List to render with the other items
-                addEntity(new Energizer(energizerX, energizerY, tex, "energizer", quadrant));
+                addEntity(new Energizer(energizerX, energizerY, tex, "energizer", quadrant, 0));
             }
         }
     }
 
-    public void createApple(Integer quadrant){
-        //Search the X and Y pos using the quadrant number and the director structure
-        for(Integer i = 0; i < Structures.director.length; i++){
-            Quadrant q = Structures.director[i];
-            //Quadrant match
-            if(quadrant == q.getQuadrant()){
-                Integer appleX = q.getX();
-                Integer appleY = q.getY();
-                //Add the pill to the Linked List to render with the other items
-                addEntity(new Apple(appleX, appleY, tex, "apple", quadrant));
+    public void createFruit(Integer fruitValue){
+        //check if the quadrant is not available
+        for(Integer i = 0; i < items.size(); i++){
+            Item item = items.get(i);
+            //There is a pac dot in this position
+            if(item.getX() == 564 && item.getY() == 250){
+                //Then we remove the item to add a new fruit
+                items.remove(item);
+                break;
             }
+        }
+        Random random = new Random();
+        Integer randomFruit = random.nextInt(3);
+        if(randomFruit == 0){
+            addEntity(new Apple(564, 250, tex,"apple", 1, fruitValue));
+        }
+        if(randomFruit == 1){
+            addEntity(new Banana(564, 250, tex,"banana", 1, fruitValue));
+        }
+        if(randomFruit == 2){
+            addEntity(new Cherry(564, 250, tex, "cherry", 1, fruitValue));
         }
     }
 

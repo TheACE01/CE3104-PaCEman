@@ -23,6 +23,8 @@ public class Item {
     //Quadrant number
     public Integer quadrant;
 
+    public Integer value;
+
     /**
      * Constructor method
      * @param x Item X position
@@ -31,12 +33,13 @@ public class Item {
      * @param id Item identifier
      * @param quadrant Item quadrant number
      */
-    public Item(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
+    public Item(Integer x, Integer y, Skins tex, String id, Integer quadrant, Integer value) {
         this.x = x;
         this.y = y;
         this.tex = tex;
         this.id = id;
         this.quadrant = quadrant;
+        this.value = value;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Item {
      * @param g The painter object
      */
     public void render(Graphics g){
-        g.drawImage(tex.apple, x, y, null);
+
     }
 
     public Integer getX() {
@@ -70,5 +73,10 @@ public class Item {
     public void setQuadrant(Integer quadrant) {
         this.quadrant = quadrant;
     }
+
+    public Integer getValue() {
+        return value;
+    }
+
 }
 

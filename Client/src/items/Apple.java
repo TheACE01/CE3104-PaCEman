@@ -1,21 +1,15 @@
 package items;
 
-
 import graphics.Skins;
+
 
 import java.awt.*;
 
 /**
- * Apple fruit item
+ * Apple fruit item.
  * @author kevin Avevedo
  */
 public class Apple extends Item {
-
-    //The textures
-    private Skins tex;
-
-    //identifier
-    private String id = "apple";
 
     /**
      * Constructor method
@@ -25,8 +19,8 @@ public class Apple extends Item {
      * @param id Apple identifier
      * @param quadrant Number of quadrant
      */
-    public Apple(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
-        super(x, y, tex, id, quadrant);
+    public Apple(Integer x, Integer y, Skins tex, String id, Integer quadrant, Integer value) {
+        super(x, y, tex, id, quadrant, value);
     }
 
     /**
@@ -36,4 +30,5 @@ public class Apple extends Item {
     public void render(Graphics g){
         g.drawImage(tex.apple, (int)x, (int)y, null);
     }
+
 }
