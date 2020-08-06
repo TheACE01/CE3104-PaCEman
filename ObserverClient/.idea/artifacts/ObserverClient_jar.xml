@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ObserverClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ObserverClient_jar</output-path>
+    <root id="archive" name="ObserverClient.jar">
+      <element id="module-output" name="ObserverClient" />
+    </root>
+  </artifact>
+</component>

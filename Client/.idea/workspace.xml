@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Client:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9cb45f6e-f890-4c25-a560-bba0c30c0380" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1fCXUxKhooYhP7gadImK4pgllnN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ObserverClient" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="conections" />
+      <recent name="dataStructures.DijkstraAlgorithm" />
+      <recent name="Physics" />
+      <recent name="user" />
+      <recent name="items" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kevin Avevedo\IdeaProjects\Client" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JAR Application.Client.jar">
+    <configuration name="Game" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.3" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="main.Game" />
+      <module name="Client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Client_jar/Client.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.Client.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cb45f6e-f890-4c25-a560-bba0c30c0380" name="Default Changelist" comment="" />
+      <created>1595723067442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595723067442</updated>
+      <workItem from="1595723071845" duration="3650000" />
+      <workItem from="1595726895069" duration="4557000" />
+      <workItem from="1595792177625" duration="1346000" />
+      <workItem from="1595863116798" duration="25255000" />
+      <workItem from="1595954208055" duration="15784000" />
+      <workItem from="1595974138920" duration="20971000" />
+      <workItem from="1595996204196" duration="9984000" />
+      <workItem from="1596041684397" duration="9022000" />
+      <workItem from="1596053558553" duration="3058000" />
+      <workItem from="1596065004914" duration="1942000" />
+      <workItem from="1596075484211" duration="864000" />
+      <workItem from="1596150085538" duration="279000" />
+      <workItem from="1596207752441" duration="21569000" />
+      <workItem from="1596245940058" duration="50000" />
+      <workItem from="1596250426770" duration="932000" />
+      <workItem from="1596478065234" duration="6158000" />
+      <workItem from="1596491576999" duration="23800000" />
+      <workItem from="1596577483814" duration="724000" />
+      <workItem from="1596603799867" duration="9508000" />
+      <workItem from="1596617981261" duration="19120000" />
+      <workItem from="1596670107574" duration="4124000" />
+      <workItem from="1596685393586" duration="539000" />
+      <workItem from="1596689175253" duration="601000" />
+      <workItem from="1596703015629" duration="5259000" />
+      <workItem from="1596740447491" duration="1726000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="721" y="345" width="525" height="416" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1596748535436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="721" y="345" width="525" height="416" key="#com.intellij.ide.util.TreeClassChooserDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1596748535436" />
+    <state x="693" y="205" width="590" height="695" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1596704999553">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="693" y="205" width="590" height="695" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1596704999553" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1596750229632">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1596750229632" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1596753075257">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596753075257" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1596753075255">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596753075255" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1596753075253">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596753075253" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1596753075256">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596753075256" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1596707055862">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055862" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1596707055858">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055858" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1596707055858">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055858" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1596707055859">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055859" />
+    <state x="476" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1596749965349">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="476" y="130" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1596749965349" />
+  </component>
+</project>
