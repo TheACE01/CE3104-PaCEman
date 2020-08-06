@@ -2,72 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8dcea71-cfdf-4d02-9705-93cf0a4acb30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ObserverClient/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ObserverClient/.idea/ObserverClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ObserverClient/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ObserverClient/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ObserverClient/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/META-INF/Client.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/characters/Bashful.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/characters/Bashful.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/characters/Pokey.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/characters/Pokey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/characters/Shadow.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/characters/Shadow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/characters/Speedy.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/characters/Speedy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/conections/StreamingClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/conections/StreamingClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/conections/StreamingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/conections/StreamingClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/BashfulGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/BashfulGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/Ghost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/PacMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/PacMan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/PokeyGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/PokeyGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/ShadowGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/ShadowGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/SpeedyGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/characters/SpeedyGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/creators/CharacterCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/creators/CharacterCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/dataStructures/GhostNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/dataStructures/Quadrant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/dataStructures/Structures.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/graphics/Animations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/graphics/Skins.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/graphics/Skins.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/graphics/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/graphics/SpriteSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/Apple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/Banana.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/Cherry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/Energizer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/items/PacDot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Game$STATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Game$STATE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Observer_Sockets/main/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/BashfulGhost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/BashfulGhost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/PacMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/PacMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/PokeyGhost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/PokeyGhost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/ShadowGhost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/ShadowGhost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/SpeedyGhost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/SpeedyGhost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creators/CharacterCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creators/CharacterCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creators/InfoCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creators/InfoCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataStructures/GhostNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataStructures/Quadrant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataStructures/Structures.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/Animations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/ImageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/Skins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Skins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/SpriteSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Apple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Banana.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Cherry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Energizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/PacDot.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/Sound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/MouseInput.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +118,7 @@
       <workItem from="1596494173256" duration="1802000" />
       <workItem from="1596497579207" duration="3100000" />
       <workItem from="1596501950531" duration="10870000" />
-      <workItem from="1596680715837" duration="6283000" />
+      <workItem from="1596680715837" duration="10866000" />
     </task>
     <servers />
   </component>

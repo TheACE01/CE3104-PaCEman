@@ -28,13 +28,18 @@ public class Collisions {
 
                 //pac dot collision
                 if(item.get(i).getItemName().equals("pacDot")){
+                    //notify the C server
+                    String message = "dot" + "," + Integer.toString(item.get(i).quadrant);
+                    //game.getClient().SendMessage(message);
 
                     //delete the pac dot
                     item.remove(i);
-                    game.getInfoCreator().addScore();
+
 
                     //play the sound
                     Sound.play("Resources/eat_pacDot.wav");
+
+
                     continue;
                 }
                 //energizer collision
@@ -42,6 +47,10 @@ public class Collisions {
 
                     //update the encoder energizer flag
                     game.getEncoder().setEnergizer(1);
+
+                    //notify the C server
+                    String message = "pill" + "," + Integer.toString(item.get(i).quadrant);
+                    //game.getClient().SendMessage(message);
 
                     //delete the energizer
                     item.remove(i);
@@ -57,6 +66,10 @@ public class Collisions {
 
                 //fruit collision
                 if(item.get(i).getItemName().equals("apple") || item.get(i).getItemName().equals("banana") || item.get(i).getItemName().equals("cherry")){
+                    //notify the C server
+                    String message = "fruit" + "," + Integer.toString(item.get(i).quadrant);
+                    //game.getClient().SendMessage(message);
+
                     //delete the fruit
                     item.remove(i);
                     Sound.play("Resources/pacman_eatfruit.wav");
@@ -96,6 +109,10 @@ public class Collisions {
 
                     //play the eat ghost sound
                     Sound.play("Resources/pacman_eatghost.wav");
+
+                    //notify the C server
+                    String message = "Ghost" + "," + Integer.toString(5);
+                    //game.getClient().SendMessage(message);
 
                     //verify whose ghosts is ate
                     if(ghosts.get(i).getGhostID().equals("shadow")){

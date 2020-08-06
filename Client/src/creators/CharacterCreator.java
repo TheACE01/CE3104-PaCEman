@@ -167,18 +167,34 @@ public class CharacterCreator {
             }
         }
     }
-    /*
-    public void createAppleItem(int x, int y){
-        addEntity(new Apple(x, y, tex));
-    }
-    public void createBananaItem(int x, int y){
-        addEntity(new Banana(x, y, tex));
-    }
-    public void createCherryItem(int x, int y){
-        addEntity(new Cherry(x, y, tex));
-    }
-     */
 
+    public void createEnergizer(Integer quadrant){
+        //Search the X and Y pos using the quadrant number and the director structure
+        for(Integer i = 0; i < Structures.director.length; i++){
+            Quadrant q = Structures.director[i];
+            //Quadrant match
+            if(quadrant == q.getQuadrant()){
+                Integer energizerX = q.getX();
+                Integer energizerY = q.getY();
+                //Add the pill to the Linked List to render with the other items
+                addEntity(new Energizer(energizerX, energizerY, tex, "energizer", quadrant));
+            }
+        }
+    }
+
+    public void createApple(Integer quadrant){
+        //Search the X and Y pos using the quadrant number and the director structure
+        for(Integer i = 0; i < Structures.director.length; i++){
+            Quadrant q = Structures.director[i];
+            //Quadrant match
+            if(quadrant == q.getQuadrant()){
+                Integer appleX = q.getX();
+                Integer appleY = q.getY();
+                //Add the pill to the Linked List to render with the other items
+                addEntity(new Apple(appleX, appleY, tex, "apple", quadrant));
+            }
+        }
+    }
 
     public LinkedList<Ghost> getEb() {
         return ghosts;

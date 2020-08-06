@@ -97,8 +97,8 @@ public class InfoCreator {
         game.getEncoder().setLives(lives);
     }
 
-    public void addScore(){
-        score++;
+    public void addScore(Integer points){
+        score += points;
         game.getEncoder().setScore(score);
     }
     public void addLevel(){

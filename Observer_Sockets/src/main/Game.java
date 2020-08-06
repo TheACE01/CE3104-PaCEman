@@ -264,8 +264,6 @@ public class Game extends Canvas implements Runnable, Observer {
         frame.setVisible(true);
 
         game.start();
-
-
     }
 
     public BufferedImage getSpriteSheet(){

@@ -1,6 +1,7 @@
 package main;
 
 import characters.Ghost;
+import conections.Client;
 import conections.Encoder;
 import conections.StreamingClient;
 import items.Item;
@@ -102,6 +103,10 @@ public class Game extends Canvas implements Runnable {
     //Controls the reset pac man and ghosts time
     private Integer resetCount = 0;
 
+    public Client getClient() {
+        return client;
+    }
+
     //States of the game
     public static enum STATE{
         MENU,
@@ -116,6 +121,12 @@ public class Game extends Canvas implements Runnable {
 
     //Encoder object
     private Encoder encoder;
+
+    //Client object
+    private Client client;
+
+    //Client Thread
+    public Thread clientThread;
 
     /**
      * Initialize the game images and listeners.
@@ -157,7 +168,7 @@ public class Game extends Canvas implements Runnable {
     /**
      * Initialize the characters and items objects
      */
-    public void playInit(){
+    public void playInit() throws IOException {
         encoder = new Encoder();
         tex = new Skins(this);
         p = new PacMan(564, 450, tex,this);
@@ -170,10 +181,6 @@ public class Game extends Canvas implements Runnable {
         //adding pac dots for test
         c.createPacDots();
 
-        //c.createAppleItem(94, 100);
-        //c.createBananaItem(1175, 100);
-        //c.createCherryItem(94, 600);
-
         //initialize the graph structure
         router.initGraph();
 
@@ -181,6 +188,12 @@ public class Game extends Canvas implements Runnable {
         ghosts = c.getEb();
         items = c.getItems();
         obstacles = c.getWalls();
+
+        //initialize the client
+        client = new Client("localhost", 8081, this);
+        clientThread = new Thread(client);
+        clientThread.start();
+
     }
 
     /**
@@ -231,7 +244,11 @@ public class Game extends Canvas implements Runnable {
 
             //checking the start flag
             if(!startFlag){
-                playInit();
+                try {
+                    playInit();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 startFlag = true;
             }
             //game loop, the hard of the games
@@ -299,6 +316,14 @@ public class Game extends Canvas implements Runnable {
             if(infoCreator.getLives() == 0 || infoCreator.getLevel() == 4){
                 //notify the observer
                 encoder.setState(-1);
+
+                //stop the client socket
+                try {
+                    clientThread.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 state = STATE.MENU;
                 startFlag = false;
             }
@@ -595,5 +620,63 @@ public class Game extends Canvas implements Runnable {
 
     public Encoder getEncoder() {
         return encoder;
+    }
+
+    public void redirectServerMessage(String message){
+        //Split the message
+        String[] serverRequest = (message).split(",");
+
+        String requestName = serverRequest[0]; //The identifier
+        Integer requestValue = Integer.parseInt(serverRequest[1]); //The value
+
+        //1: Create ghost request only if there are not 4 ghosts in the game
+        if(requestName.equals("createghost")  && ghosts.size() < 4){
+            //Shadow?
+            if(requestValue == 1){
+                c.createShadow();
+            }
+            //Bashful?
+            if(requestValue == 2){
+                c.createBashful();
+            }
+            //Pokey?
+            if(requestValue == 3){
+                c.createPokey();
+            }
+            //Speedy?
+            if(requestValue == 4){
+                c.createSpeedy();
+            }
+        }
+
+        //2: Create Energizer or Pill in a specific quadrant
+        if(requestName.equals("pill")){
+            c.createEnergizer(requestValue);
+        }
+
+        //3: Create fruit request
+        if(requestName.equals("fruit")){
+            c.createApple(requestValue);
+        }
+
+        //4: Level up request
+        if(requestName.equals("level")){
+            levelUp();
+        }
+
+        //5: Pac man lifes request
+        if(requestName.equals("lifes")){
+            infoCreator.addLives();
+        }
+
+        //6: Velocity request
+        if(requestName.equals("velocity")){
+            c.GhostBoost(requestValue);
+        }
+
+        //7: Points request
+        if(requestName.equals("points")){
+            infoCreator.addScore(requestValue);
+        }
     }
 }
