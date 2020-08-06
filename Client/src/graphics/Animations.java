@@ -3,14 +3,23 @@ package graphics;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Creates the sprites animations of the game.
+ * @author kevin Avevedo
+ */
 public class Animations {
 
+    //animation speed
+    private Integer speed;
 
-    private int speed;
-    private int frames;
-    private int index = 0;
-    private int count = 0;
+    //number of franes
+    private Integer frames;
 
+    //counters
+    private Integer index = 0;
+    private Integer count = 0;
+
+    //images to load and animate
     private BufferedImage img1;
     private BufferedImage img2;
     private BufferedImage img3;
@@ -26,177 +35,25 @@ public class Animations {
     private BufferedImage img13;
     private BufferedImage img14;
 
+    //the actual image
     private BufferedImage currentImg;
-    //13 frame animation
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        this.img10 = img10;
-        this.img11 = img11;
-        this.img12 = img12;
-        this.img13 = img13;
-        this.img14 = img14;
-        frames = 14;
-    }
-    //13 frame animation
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12, BufferedImage img13){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        this.img10 = img10;
-        this.img11 = img11;
-        this.img12 = img12;
-        this.img13 = img13;
-        frames = 13;
-    }
-    //12 frame animation
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        this.img10 = img10;
-        this.img11 = img11;
-        this.img12 = img12;
-        frames = 12;
-    }
-    //11 frame animation
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        this.img10 = img10;
-        this.img11 = img11;
-        frames = 11;
-    }
-    //10 frame animation
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        this.img10 = img10;
-        frames = 10;
-    }
-    // 9 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        this.img9 = img9;
-        frames = 9;
-    }
-    //8 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        this.img8 = img8;
-        frames = 8;
-    }
-    //7 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        this.img7 = img7;
-        frames = 7;
-    }
-    //6 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        this.img6 = img6;
-        frames = 6;
-    }
-    //5 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        frames = 5;
-    }
-    //4 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        frames = 4;
-    }
-    //3 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3){
-        this.speed = speed;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        frames = 3;
-    }
-    //2 frame
-    public Animations(int speed, BufferedImage img1, BufferedImage img2){
+
+    /**
+     * Constructor method,this is made for two images animations
+     * @param speed Animation speed
+     * @param img1 The first image
+     * @param img2 The second image
+     */
+    public Animations(Integer speed, BufferedImage img1, BufferedImage img2){
         this.speed = speed;
         this.img1 = img1;
         this.img2 = img2;
         frames = 2;
     }
 
+    /**
+     * Image swap when the character moves
+     */
     public void runAnimation(){
         index++;
         if(index > speed){
@@ -205,6 +62,9 @@ public class Animations {
         }
     }
 
+    /**
+     * Alternates the frames and animate
+     */
     public void nextFrame(){
 
         //switch statement
@@ -524,20 +384,15 @@ public class Animations {
         }
     }
 
-    public void drawAnimation(Graphics g, double x, double y, int offset){
+    /**
+     * Shows the visual animation
+     * @param g The painter object
+     * @param x X pos for drawing
+     * @param y Y pos for drawing
+     * @param offset Move number
+     */
+    public void drawAnimation(Graphics g, double x, double y, Integer offset){
         g.drawImage(currentImg, (int)x - offset, (int)y, null);
     }
 
-    public void setCount(int count){
-        this.count = count;
-    }
-    public int getCount(){
-        return count;
-    }
-    public int getSpeed(){
-        return speed;
-    }
-    public void setSpeed(int speed){
-        this.speed = speed;
-    }
 }

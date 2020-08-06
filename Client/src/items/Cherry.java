@@ -5,12 +5,28 @@ import graphics.Skins;
 
 import java.awt.*;
 
+/**
+ * Cherry fruit item.
+ * @author kevin Avevedo
+ */
 public class Cherry extends Item {
 
-
-    public Cherry(int x, int y, Skins tex, String id, int quadrant) {
+    /**
+     * Constructor method
+     * @param x Cherry X position
+     * @param y Cherry Y position
+     * @param tex Textures
+     * @param id Cherry identifier
+     * @param quadrant Number of quadrant
+     */
+    public Cherry(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
         super(x, y, tex, id, quadrant);
     }
+
+    /**
+     * Draw the Cherry on screen
+     * @param g The painter object
+     */
     public void render(Graphics g){
         g.drawImage(tex.cherry, (int)x, (int)y, null);
     }

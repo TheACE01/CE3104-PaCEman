@@ -1,39 +1,46 @@
 package dataStructures;
 
+/**
+ * Represents the square spaces in the map. This is used in the director structure
+ */
 public class Quadrant {
 
-    private int quadrant;
-    private int x;
-    private int y;
-    private int item;
+    //Quadrant number
+    private Integer quadrant;
 
-    public Quadrant(int quadrant, int x, int y){
+    //Quadrant position
+    private Integer x;
+    private Integer y;
+
+    /**
+     * Constructor method
+     * @param quadrant Quadrant number
+     * @param x Quadrant X position
+     * @param y Quadrant Y position
+     */
+    public Quadrant(Integer quadrant, Integer x, Integer y){
         this.quadrant = quadrant;
         this.x = x;
         this.y = y;
     }
 
-    public int getQuadrant() {
+    public Integer getQuadrant() {
         return quadrant;
     }
 
-    public void setQuadrant(int quadrant) {
-        this.quadrant = quadrant;
-    }
-
-    public int getX() {
+    public Integer getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(Integer x) {
         this.x = x;
     }
 
-    public int getY() {
+    public Integer getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(Integer y) {
         this.y = y;
     }
 }

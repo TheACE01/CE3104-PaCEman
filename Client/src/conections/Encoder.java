@@ -1,155 +1,163 @@
 package conections;
 
+/**
+ * Encode the information that the observer needs like character positions, energizer status and game over status
+ * @author kevin Avevedo
+ */
 public class Encoder {
 
-    private double pacmanX;
-    private double pacmanY;
+    //pac man position
+    private Double pacmanX;
+    private Double pacmanY;
 
-
+    //shadow position
     private double shadowX;
     private double shadowY;
 
-
+    //bashful position
     private double bashfulX;
     private double bashfulY;
 
-
+    //pokey position
     private double pokeyX;
     private double pokeyY;
 
-
+    //speedy position
     private double speedyX;
     private double SpeedyY;
 
+    //Score information
+    private Integer score = 0;
 
-    private int score;
-    private int level = 1;
-    private int lives = 3;
+    //Level information
+    private Integer level = 1;
 
-    private int state = 1;
+    //pac man lives information
+    private Integer lives = 3;
 
-    private int energizer = 0;
+    //game state information
+    private Integer state = 1;
 
+    //energizer triggered state
+    private Integer energizer = 0;
 
-
-
-    public double getPacmanX() {
+    public Double getPacmanX() {
         return pacmanX;
     }
 
-    public void setPacmanX(double pacmanX) {
+    public void setPacmanX(Double pacmanX) {
         this.pacmanX = pacmanX;
     }
 
-    public double getPacmanY() {
+    public Double getPacmanY() {
         return pacmanY;
     }
 
-    public void setPacmanY(double pacmanY) {
+    public void setPacmanY(Double pacmanY) {
         this.pacmanY = pacmanY;
     }
 
-    public double getShadowX() {
+    public Double getShadowX() {
         return shadowX;
     }
 
-    public void setShadowX(double shadowX) {
+    public void setShadowX(Double shadowX) {
         this.shadowX = shadowX;
     }
 
-    public double getShadowY() {
+    public Double getShadowY() {
         return shadowY;
     }
 
-    public void setShadowY(double shadowY) {
+    public void setShadowY(Double shadowY) {
         this.shadowY = shadowY;
     }
 
-    public double getBashfulX() {
+    public Double getBashfulX() {
         return bashfulX;
     }
 
-    public void setBashfulX(double bashfulX) {
+    public void setBashfulX(Double bashfulX) {
         this.bashfulX = bashfulX;
     }
 
-    public double getBashfulY() {
+    public Double getBashfulY() {
         return bashfulY;
     }
 
-    public void setBashfulY(double bashfulY) {
+    public void setBashfulY(Double bashfulY) {
         this.bashfulY = bashfulY;
     }
 
-    public double getPokeyX() {
+    public Double getPokeyX() {
         return pokeyX;
     }
 
-    public void setPokeyX(double pokeyX) {
+    public void setPokeyX(Double pokeyX) {
         this.pokeyX = pokeyX;
     }
 
-    public double getPokeyY() {
+    public Double getPokeyY() {
         return pokeyY;
     }
 
-    public void setPokeyY(double pokeyY) {
+    public void setPokeyY(Double pokeyY) {
         this.pokeyY = pokeyY;
     }
 
-    public double getSpeedyX() {
+    public Double getSpeedyX() {
         return speedyX;
     }
 
-    public void setSpeedyX(double speedyX) {
+    public void setSpeedyX(Double speedyX) {
         this.speedyX = speedyX;
     }
 
-    public double getSpeedyY() {
+    public Double getSpeedyY() {
         return SpeedyY;
     }
 
-    public void setSpeedyY(double speedyY) {
+    public void setSpeedyY(Double speedyY) {
         SpeedyY = speedyY;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
-    public int getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
-    public int getLives() {
+    public Integer getLives() {
         return lives;
     }
 
-    public void setLives(int lives) {
+    public void setLives(Integer lives) {
         this.lives = lives;
     }
 
-    public int getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 
-    public int getEnergizer() {
+    public Integer getEnergizer() {
         return energizer;
     }
 
-    public void setEnergizer(int energizer) {
+    public void setEnergizer(Integer energizer) {
         this.energizer = energizer;
     }
 }

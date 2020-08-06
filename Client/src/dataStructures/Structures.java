@@ -2,6 +2,9 @@ package dataStructures;
 
 import items.Item;
 
+/**
+ *  Main structures of the game logic
+ */
 public class Structures {
 
     // The quadrant List
@@ -41,80 +44,87 @@ public class Structures {
 
 
             //row 4
-            new Quadrant(53, 94, 250), new Quadrant(54, 188, 250),
-            new Quadrant(55, 282, 250), new Quadrant(56, 423, 250),
-            new Quadrant(57, 470, 250), new Quadrant(58, 517, 250),
-            new Quadrant(59, 564, 250), new Quadrant(60, 611, 250),
-            new Quadrant(61, 658, 250), new Quadrant(62, 705, 250),
-            new Quadrant(63, 799, 250), new Quadrant(64, 1081, 250),
-            new Quadrant(65, 1175, 250),
+            new Quadrant(50, 94, 250), new Quadrant(51, 188, 250),
+            new Quadrant(52, 282, 250), new Quadrant(53, 423, 250),
+            new Quadrant(54, 470, 250), new Quadrant(55, 517, 250),
+            new Quadrant(56, 564, 250), new Quadrant(57, 611, 250),
+            new Quadrant(58, 658, 250), new Quadrant(59, 705, 250),
+            new Quadrant(60, 799, 250), new Quadrant(61, 1081, 250),
+            new Quadrant(62, 1175, 250),
 
             //row 5
-            new Quadrant(66, 94, 300), new Quadrant(67, 188, 300),
-            new Quadrant(68, 282, 300), new Quadrant(69, 329, 300),
-            new Quadrant(70, 376, 300), new Quadrant(71, 423, 300),
-            new Quadrant(72, 705, 300), new Quadrant(73, 799, 300),
-            new Quadrant(74, 893, 300), new Quadrant(75, 940, 300),
-            new Quadrant(76, 987, 300), new Quadrant(77, 1034, 300),
-            new Quadrant(78, 1081, 300), new Quadrant(79, 1175, 300),
+            new Quadrant(63, 94, 300), new Quadrant(64, 188, 300),
+            new Quadrant(65, 282, 300), new Quadrant(66, 329, 300),
+            new Quadrant(67, 376, 300), new Quadrant(68, 423, 300),
+            new Quadrant(69, 705, 300), new Quadrant(70, 799, 300),
+            new Quadrant(71, 893, 300), new Quadrant(72, 940, 300),
+            new Quadrant(73, 987, 300), new Quadrant(74, 1034, 300),
+            new Quadrant(75, 1081, 300), new Quadrant(76, 1175, 300),
+            new Quadrant(77, 94, 350), new Quadrant(78, 141, 350),
+            new Quadrant(79, 188, 350),
 
             //row 6
-            new Quadrant(80, 94, 350), new Quadrant(81, 141, 350),
-            new Quadrant(82, 188, 350), new Quadrant(83, 282, 350),
-            new Quadrant(84, 423, 350),
-            new Quadrant(85, 705, 350), new Quadrant(86, 799, 350),
-            new Quadrant(87, 846, 350), new Quadrant(88, 893, 350),
-            new Quadrant(89, 1034, 350), new Quadrant(90, 1175, 350),
+            new Quadrant(80, 282, 350),
+            new Quadrant(81, 423, 350),
+            new Quadrant(82, 705, 350), new Quadrant(83, 799, 350),
+            new Quadrant(84, 846, 350), new Quadrant(85, 893, 350),
+            new Quadrant(86, 1034, 350), new Quadrant(87, 1175, 350),
+            new Quadrant(88, 94, 400), new Quadrant(89, 188, 400),
+            new Quadrant(90, 235, 400), new Quadrant(91, 282, 400),
+            new Quadrant(92, 329, 400), new Quadrant(93, 376, 400),
+
 
             //row 7
-            new Quadrant(91, 94, 400), new Quadrant(92, 188, 400),
-            new Quadrant(93, 235, 400), new Quadrant(94, 282, 400),
-            new Quadrant(95, 329, 400), new Quadrant(96, 376, 400),
-            new Quadrant(97, 423, 400), new Quadrant(98, 705, 400),
-            new Quadrant(99, 846, 400), new Quadrant(100, 987, 400),
-            new Quadrant(101, 1034, 400), new Quadrant(102, 1081, 400),
-            new Quadrant(103, 1128, 400), new Quadrant(104, 1175, 400),
+            new Quadrant(94, 423, 400), new Quadrant(95, 705, 400),
+            new Quadrant(96, 846, 400), new Quadrant(97, 987, 400),
+            new Quadrant(98, 1034, 400), new Quadrant(99, 1081, 400),
+            new Quadrant(100, 1128, 400), new Quadrant(101, 1175, 400),
+            new Quadrant(102, 94, 450), new Quadrant(103, 188, 450),
+            new Quadrant(104, 376, 450), new Quadrant(105, 517, 450),
+            new Quadrant(106, 611, 450),
+            new Quadrant(107, 658, 450),
 
             //row 8
-            new Quadrant(105, 94, 450), new Quadrant(106, 188, 450),
-            new Quadrant(107, 376, 450), new Quadrant(108, 517, 450),
-            new Quadrant(109, 611, 450),
-            new Quadrant(110, 658, 450), new Quadrant(111, 705, 450),
-            new Quadrant(112, 752, 450), new Quadrant(113, 846, 450),
-            new Quadrant(114, 893, 450), new Quadrant(115, 940, 450),
-            new Quadrant(116, 987, 450), new Quadrant(117, 1175, 450),
+            new Quadrant(108, 705, 450),
+            new Quadrant(109, 752, 450), new Quadrant(110, 846, 450),
+            new Quadrant(111, 893, 450), new Quadrant(112, 940, 450),
+            new Quadrant(113, 987, 450), new Quadrant(114, 1175, 450),
+            new Quadrant(115, 94, 500), new Quadrant(116, 141, 500),
+            new Quadrant(117, 188, 500), new Quadrant(118, 282, 500),
+            new Quadrant(119, 329, 500), new Quadrant(120, 376, 500),
+            new Quadrant(121, 423, 500),
 
             //row 9
-            new Quadrant(118, 94, 500), new Quadrant(119, 141, 500),
-            new Quadrant(120, 188, 500), new Quadrant(121, 282, 500),
-            new Quadrant(122, 329, 500), new Quadrant(123, 376, 500),
-            new Quadrant(124, 423, 500), new Quadrant(125, 470, 500),
-            new Quadrant(126, 517, 500), new Quadrant(127, 752, 500),
-            new Quadrant(128, 846, 500), new Quadrant(129, 987, 500),
-            new Quadrant(130, 1034, 500), new Quadrant(131, 1081, 500),
-            new Quadrant(132, 1128, 500),new Quadrant(133, 1175, 500),
+            new Quadrant(122, 470, 500),
+            new Quadrant(123, 517, 500), new Quadrant(124, 752, 500),
+            new Quadrant(125, 846, 500), new Quadrant(126, 987, 500),
+            new Quadrant(127, 1034, 500), new Quadrant(128, 1081, 500),
+            new Quadrant(129, 1128, 500),new Quadrant(130, 1175, 500),
+            new Quadrant(131, 94, 550), new Quadrant(132, 282, 550),
+            new Quadrant(133, 470, 550), new Quadrant(134, 611, 550),
+            new Quadrant(135, 658, 550), new Quadrant(136, 705, 550),
+            new Quadrant(137, 752, 550),
 
             //row 10
-            new Quadrant(134, 94, 550), new Quadrant(135, 282, 550),
-            new Quadrant(136, 470, 550), new Quadrant(137, 611, 550),
-            new Quadrant(138, 658, 550), new Quadrant(139, 705, 550),
-            new Quadrant(140, 752, 550), new Quadrant(141, 846, 550),
-            new Quadrant(142, 1175, 550),
+            new Quadrant(138, 846, 550),
+            new Quadrant(139, 1175, 550),
+            new Quadrant(140, 94, 600), new Quadrant(141, 141, 600),
+            new Quadrant(142, 188, 600), new Quadrant(143, 235, 600),
+            new Quadrant(144, 282, 600), new Quadrant(145, 329, 600),
+            new Quadrant(146, 376, 600),
 
             //row 11
-            new Quadrant(143, 94, 600), new Quadrant(144, 141, 600),
-            new Quadrant(145, 188, 600), new Quadrant(146, 235, 600),
-            new Quadrant(147, 282, 600), new Quadrant(148, 329, 600),
-            new Quadrant(149, 376, 600), new Quadrant(150, 423, 600),
-            new Quadrant(151, 470, 600), new Quadrant(152, 517, 600),
-            new Quadrant(153, 564, 600), new Quadrant(154, 611, 600),
-            new Quadrant(155, 752, 600), new Quadrant(156, 799, 600),
-            new Quadrant(157, 846, 600), new Quadrant(158, 893, 600),
-            new Quadrant(159, 940, 600), new Quadrant(160, 987, 600),
-            new Quadrant(161, 1034, 600), new Quadrant(162,1081 , 600),
-            new Quadrant(163, 1128, 600), new Quadrant(164, 1128, 600),
-            new Quadrant(165, 1175, 600)};
+            new Quadrant(147, 423, 600),
+            new Quadrant(148, 470, 600), new Quadrant(149, 517, 600),
+            new Quadrant(150, 564, 600), new Quadrant(151, 611, 600),
+            new Quadrant(152, 752, 600), new Quadrant(153, 799, 600),
+            new Quadrant(154, 846, 600), new Quadrant(155, 893, 600),
+            new Quadrant(156, 940, 600), new Quadrant(157, 987, 600),
+            new Quadrant(158, 1034, 600), new Quadrant(159,1081 , 600),
+            new Quadrant(160, 1128, 600), new Quadrant(161, 1128, 600),
+            new Quadrant(162, 1175, 600)};
 
+    //The ghost graph
     public static GhostNode ghostGraph[] = {
             new GhostNode(94, 100, "Node_0", "None", "Node_5", "Node_1", "None"),
             new GhostNode(235, 100, "Node_1", "None", "Node_2", "Node_23", "Node_0"),
@@ -232,8 +242,8 @@ public class Structures {
     };
 
 
-    public static int getPacDotQuadrant(Item pacDot){
-        for(int i = 0; i < director.length; i++){
+    public static Integer getPacDotQuadrant(Item pacDot){
+        for(Integer i = 0; i < director.length; i++){
             if(pacDot.getX() == director[i].getX() && pacDot.getY() == director[i].getY()){
                 return director[i].getQuadrant();
             }

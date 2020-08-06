@@ -4,33 +4,56 @@ import graphics.Skins;
 
 import java.awt.*;
 
+/**
+ * The item parent class. Specifies the characteristics of the fruits, pac dots and energizers that
+ * appears on the game.
+ * @author kevin Avevedo
+ */
 public class Item {
 
-    public int x, y;
-    public String id;
-    public Skins tex;
-    public int quadrant;
+    //Item X and Y position
+    public Integer x, y;
 
-    public Item(int x, int y, Skins tex, String id, int quadrant) {
+    //item identifier
+    public String id;
+
+    //Textures of the game
+    public Skins tex;
+
+    //Quadrant number
+    public Integer quadrant;
+
+    /**
+     * Constructor method
+     * @param x Item X position
+     * @param y Item Y position
+     * @param tex Textures of the characters
+     * @param id Item identifier
+     * @param quadrant Item quadrant number
+     */
+    public Item(Integer x, Integer y, Skins tex, String id, Integer quadrant) {
         this.x = x;
         this.y = y;
         this.tex = tex;
         this.id = id;
         this.quadrant = quadrant;
-
     }
+
+    /**
+     * Draw the items images
+     * @param g The painter object
+     */
     public void render(Graphics g){
-        g.drawImage(tex.apple, (int)x, (int)y, null);
+        g.drawImage(tex.apple, x, y, null);
     }
 
-    public double getX() {
+    public Integer getX() {
         return x;
     }
 
-    public double getY() {
+    public Integer getY() {
         return y;
     }
-
 
     public String getItemName() {
         return id;
@@ -40,11 +63,11 @@ public class Item {
         return new Rectangle((int)x + 19, (int)y + 21,8,8);
     }
 
-    public int getQuadrant() {
+    public Integer getQuadrant() {
         return quadrant;
     }
 
-    public void setQuadrant(int quadrant) {
+    public void setQuadrant(Integer quadrant) {
         this.quadrant = quadrant;
     }
 }

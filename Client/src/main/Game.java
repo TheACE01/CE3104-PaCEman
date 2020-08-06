@@ -15,6 +15,8 @@ import user.MouseInput;
 import user.PacManControl;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
@@ -22,15 +24,27 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.LinkedList;
 
+/**
+ * This is the main class of the game, controls the player movement, the game configuration, the time counters
+ * , the images, the observer messages and the window.
+ * @author kevin Avevedo
+ */
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 1269;
-    public static final int HEIGHT = 700;
+    //window dimensions
+    public static final Integer WIDTH = 1269;
+    public static final Integer HEIGHT = 700;
+
+    //window title
     public final String TITTLE = "paCE man";
 
-    private boolean running = false;
+    //validates if the game started
+    private Boolean running = false;
+
+    //Main thread
     private Thread thread;
 
+    //Images of the game
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private BufferedImage spriteSheet = null;
     private BufferedImage spriteSheet2 = null;
@@ -44,56 +58,71 @@ public class Game extends Canvas implements Runnable {
     private BufferedImage cherrySprite = null;
     private BufferedImage live = null;
 
-    private int dotsTakenCount = 0;
-
+    //Pac Man object
     private PacMan p;
+
+    //Character Creator object
     private CharacterCreator c;
+
+    //Info Creator object
     private InfoCreator infoCreator;
+
+    //Textures object
     private Skins tex;
+
+    //Menu object
     private Menu menu;
 
-    public LinkedList<Ghost> eb;
-    public LinkedList<Item> ec;
-    public LinkedList<Obstacle> ed;
+    //Characters Lists
+    public LinkedList<Ghost> ghosts;
+    public LinkedList<Item> items;
+    public LinkedList<Obstacle> obstacles;
 
+    //Dijkstra Algorithm object
     private DijkstraExec router = new DijkstraExec();
+
+    //Shadow Target
     private Integer shadowTarget = 32;
 
-    private boolean energizerOn = false;
+    //Energizer flag
+    private Boolean energizerOn = false;
+
+    //Refresh Target
     private Integer refreshTarget;
 
-    private boolean chaiseSpeedy = false;
-    private int chaiseSpeedyCont;
+    //Determines when to trigger the Speedy chase mode
+    private Boolean chaseSpeedy = false;
 
+    //Controls the chase Speedy time
+    private Integer chaseSpeedyCont;
+
+    //Flag that determines when to animate the pac man dying
     private Boolean resetCountFlag = false;
+
+    //Controls the reset pac man and ghosts time
     private Integer resetCount = 0;
 
-    public BufferedImage getLive() {
-        return live;
-    }
-
-    public InfoCreator getInfoCreator() {
-        return infoCreator;
-    }
-
-    public Encoder getEncoder() {
-        return encoder;
-    }
-
-
+    //States of the game
     public static enum STATE{
         MENU,
         PLAY
     };
+
+    //Actual game state
     public static STATE state = STATE.MENU;
 
+    //Starting game flag
     public static Boolean startFlag = true;
 
+    //Encoder object
     private Encoder encoder;
 
-
+    /**
+     * Initialize the game images and listeners.
+     */
     public void init(){
         requestFocus();
+        //create an image loader
         ImageLoader loader = new ImageLoader();
         try{
             spriteSheet = loader.loadImage("/spriteSheet.png");
@@ -116,11 +145,18 @@ public class Game extends Canvas implements Runnable {
         }catch (IOException e){
             e.printStackTrace();
         }
+
+        //initializing the listeners
         addKeyListener(new PacManControl(this));
         addMouseListener(new MouseInput());
+
+        //creating the menu
         menu = new Menu();
     }
 
+    /**
+     * Initialize the characters and items objects
+     */
     public void playInit(){
         encoder = new Encoder();
         tex = new Skins(this);
@@ -142,11 +178,14 @@ public class Game extends Canvas implements Runnable {
         router.initGraph();
 
         //initialize linked lists
-        eb = c.getEb();
-        ec = c.getEc();
-        ed = c.getEd();
+        ghosts = c.getEb();
+        items = c.getItems();
+        obstacles = c.getWalls();
     }
 
+    /**
+     * Initialize the main thread
+     */
     private synchronized void start(){
         if(running)
             return;
@@ -155,6 +194,10 @@ public class Game extends Canvas implements Runnable {
         thread = new Thread(this);
         thread.start();
     }
+
+    /**
+     * Stop the main thread
+     */
     private synchronized void stop(){
         if(!running)
             return;
@@ -168,19 +211,22 @@ public class Game extends Canvas implements Runnable {
         System.exit(1);
     }
 
+    /**
+     * Start the powerful game loop
+     */
     @Override
     public void run() {
         init();
         long lastTime = System.nanoTime();
-        final double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
-        double delta = 0;
-        int updates = 0;
-        int frames = 0;
+        final Double amountOfTicks = 60.0;
+        Double ns = 1000000000 / amountOfTicks;
+        Double delta = 0.0;
+        Integer updates = 0;
+        Integer frames = 0;
         long timer = System.currentTimeMillis();
 
         refreshTarget = 0;
-        chaiseSpeedyCont = 0;
+        chaseSpeedyCont = 0;
         while(running){
 
             //checking the start flag
@@ -218,17 +264,14 @@ public class Game extends Canvas implements Runnable {
                     refreshTarget++;
                     //System.out.println(refreshTarget);
                 }
-
                 //speedy flag
-                if(chaiseSpeedyCont == 10 && state == STATE.PLAY) {
-                    chaiseSpeedyCont = 0;
+                if(chaseSpeedyCont == 10 && state == STATE.PLAY) {
+                    chaseSpeedyCont = 0;
                     swapSpeedyMovement();
-
                 }
-                if(chaiseSpeedyCont < 10 && state == STATE.PLAY){
-                    chaiseSpeedyCont++;
+                if(chaseSpeedyCont < 10 && state == STATE.PLAY){
+                    chaseSpeedyCont++;
                 }
-
                 //reset level counter
                 if(resetCountFlag && resetCount == 2 && state == STATE.PLAY){
                     reset();
@@ -241,11 +284,13 @@ public class Game extends Canvas implements Runnable {
                 updates = 0;
                 frames = 0;
             }
-
         }
         stop();
     }
 
+    /**
+     * Call the CharacterCreator and Pac Man tick methods. Controls the movement
+     */
     private void tick(){
         if(state == STATE.PLAY && startFlag){
             p.tick();
@@ -263,6 +308,10 @@ public class Game extends Canvas implements Runnable {
         }
 
     }
+
+    /**
+     * Call the CharacterCreator and Pac Man render methods
+     */
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -271,7 +320,7 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         Graphics g = bs.getDrawGraphics();
-        /////////////////////////////////////
+
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 
         if(state == STATE.PLAY && startFlag){
@@ -281,16 +330,23 @@ public class Game extends Canvas implements Runnable {
             infoCreator.render(g);
         }
         else if(state == STATE.MENU){
+
             g.drawImage(menu_background,0,0,this);
             menu.render(g);
-        }
+            }
+
 
         g.dispose();
         bs.show();
     }
+
+    /**
+     * Validates the pressed keys on the keyboard
+     * @param e The key event
+     */
     public void keyPressed(KeyEvent e){
 
-        int key = e.getKeyCode();
+        Integer key = e.getKeyCode();
 
         if(state == STATE.PLAY){
 
@@ -298,24 +354,24 @@ public class Game extends Canvas implements Runnable {
                 p.directionSwap();
 
                 p.setR(true);
-                p.setVelX(3);
+                p.setVelX(3.0);
             }
             else if(key == KeyEvent.VK_A){
                 p.directionSwap();
 
                 p.setL(true);
-                p.setVelX(-3);
+                p.setVelX(-3.0);
             }
             else if(key == KeyEvent.VK_W){
                 p.directionSwap();
 
                 p.setU(true);
-                p.setVelY(-3);
+                p.setVelY(-3.0);
             }
             else if(key == KeyEvent.VK_S){
                 p.directionSwap();
                 p.setD(true);
-                p.setVelY(3);
+                p.setVelY(3.0);
             }
 
             else if(key == KeyEvent.VK_1){
@@ -345,25 +401,32 @@ public class Game extends Canvas implements Runnable {
 
     }
 
+    /**
+     * Validates the released key events
+     * @param e The key event
+     */
     public void keyReleased(KeyEvent e){
         int key = e.getKeyCode();
 
         if(key == KeyEvent.VK_D){
-           p.setVelX(0);
+           p.setVelX(0.0);
         }
         else if(key == KeyEvent.VK_A){
-            p.setVelX(0);
+            p.setVelX(0.0);
         }
         else if(key == KeyEvent.VK_W){
-            p.setVelY(0);
+            p.setVelY(0.0);
         }
         else if(key == KeyEvent.VK_S){
-            p.setVelY(0);
+            p.setVelY(0.0);
         }
     }
 
 
-
+    /**
+     * The main method of the game
+     * @param args
+     */
     public static void main(String args[]){
         Game game = new Game();
 
@@ -395,11 +458,11 @@ public class Game extends Canvas implements Runnable {
         return router;
     }
 
-    public int getShadowTarget() {
+    public Integer getShadowTarget() {
         return shadowTarget;
     }
 
-    public void setShadowTarget(int shadowTarget) {
+    public void setShadowTarget(Integer shadowTarget) {
         this.shadowTarget = shadowTarget;
     }
 
@@ -407,36 +470,41 @@ public class Game extends Canvas implements Runnable {
         return energizerSprite;
     }
 
-    public boolean isEnergizerOn() {
+    public Boolean isEnergizerOn() {
         return energizerOn;
     }
 
-    public void setEnergizerOn(boolean energizerOn) {
+    public void setEnergizerOn(Boolean energizerOn) {
         this.energizerOn = energizerOn;
     }
 
 
-    public void setRefreshTarget(int refreshTarget) {
+    public void setRefreshTarget(Integer refreshTarget) {
         this.refreshTarget = refreshTarget;
     }
 
-    public boolean isChaiseSpeedy() {
-        return chaiseSpeedy;
+    public Boolean isChaiseSpeedy() {
+        return chaseSpeedy;
     }
+
+    /**
+     * Change the Speedy chase mode status
+     */
     public void swapSpeedyMovement(){
-        if(chaiseSpeedy) chaiseSpeedy = false;
+        if(chaseSpeedy) chaseSpeedy = false;
         else{
-            chaiseSpeedy = true;
+            chaseSpeedy = true;
         }
     }
+
+    /**
+     * Initialize the player to the starting position
+     */
     public void reset(){
-        p.setX(47*12);
-        p.setY(50*9);
-
-
+        p.setX(47.0*12.0);
+        p.setY(50.0*9.0);
         p.setDyingFlag(false);
     }
-
 
     public BufferedImage getAppleSprite() {
         return appleSprite;
@@ -466,6 +534,9 @@ public class Game extends Canvas implements Runnable {
         this.resetCountFlag = resetCountFlag;
     }
 
+    /**
+     * Prepare the message to be sent to the observer, creates the socket and send the message
+     */
     public void updateEncoder(){
         //sending messages to the observer next to the characters ticks
 
@@ -475,18 +546,14 @@ public class Game extends Canvas implements Runnable {
                 Double.toString(encoder.getPacmanX()) +
                 "," + Double.toString(encoder.getPacmanY()) +
 
-
                 "," + Double.toString(encoder.getShadowX()) +
                 "," + Double.toString(encoder.getShadowY()) +
-
 
                 "," + Double.toString(encoder.getBashfulX()) +
                 "," + Double.toString(encoder.getBashfulY()) +
 
-
                 "," + Double.toString(encoder.getPokeyX()) +
                 "," + Double.toString(encoder.getPokeyY()) +
-
 
                 "," + Double.toString(encoder.getSpeedyX()) +
                 "," + Double.toString(encoder.getSpeedyY()) +
@@ -501,34 +568,32 @@ public class Game extends Canvas implements Runnable {
 
                         "," + Integer.toString(encoder.getEnergizer());
 
-
-
-
-
         StreamingClient c = new StreamingClient(6000, encodedCharacters);
         Thread t = new Thread(c);
         t.start();
-
-
-
-
     }
 
-    public String encodeItems(LinkedList<Item> ec, int cont){
-        if(cont == (ec.size() -1)){
-            return ec.get(cont).id + "-" + ec.get(cont).quadrant;
-        }
-        else{
-
-            return ec.get(cont).id + "-" + ec.get(cont).quadrant + "," + encodeItems(ec, cont + 1);
-        }
-    }
+    /**
+     * Logic when the level up is activated
+     */
     public void levelUp(){
         infoCreator.addLevel();
-        ec.clear();
-        eb.clear();
-        p.setX(564);
-        p.setY(450);
+        items.clear();
+        ghosts.clear();
+        p.setX(564.0);
+        p.setY(450.0);
         c.createPacDots();
+    }
+
+    public BufferedImage getLive() {
+        return live;
+    }
+
+    public InfoCreator getInfoCreator() {
+        return infoCreator;
+    }
+
+    public Encoder getEncoder() {
+        return encoder;
     }
 }

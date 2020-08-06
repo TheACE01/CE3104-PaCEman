@@ -5,12 +5,23 @@ import main.Game;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Check the mouse actions when the MENU state is turned on
+ * @author kevin Avevedo
+ */
 public class MouseInput implements MouseListener {
+
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
     }
 
+    /**
+     * When the mouse is pressed verifies the X and Y position of the click event, and check
+     * if the user slashed a button of the menu
+     * @param e The mouse event
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         Integer mx = e.getX();

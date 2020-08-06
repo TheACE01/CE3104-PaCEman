@@ -1,7 +1,5 @@
 package Physics;
 
-
-
 import characters.Ghost;
 import items.Item;
 import characters.PacMan;
@@ -12,29 +10,35 @@ import music.Sound;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * Use the Characters Lists and check if pac man collides with the items, ghosts or walls in the game
+ * @author kevin Avevedo
+ */
 public class Collisions {
 
+    /**
+     * Check if pac man collides with pac dots, energizers and fruits
+     * @param pacman The pac man object
+     * @param item The items Linked List
+     * @param game The main class access
+     */
     public static void ItemCollision(PacMan pacman, LinkedList<Item> item, Game game){
         for(int i = 0; i < item.size(); i++){
             if(pacman.getBounds().intersects(item.get(i).getBounds())){
 
+                //pac dot collision
                 if(item.get(i).getItemName().equals("pacDot")){
-                    //System.out.println("Pac dot Quadrant: " + Structures.getPacDotQuadrant(item.get(i)));
-                    //update the encoder
-
-
 
                     //delete the pac dot
                     item.remove(i);
                     game.getInfoCreator().addScore();
 
-
                     //play the sound
                     Sound.play("Resources/eat_pacDot.wav");
                     continue;
                 }
+                //energizer collision
                 if(item.get(i).getItemName().equals("energizer")){
-                    //System.out.println("energizer");
 
                     //update the encoder energizer flag
                     game.getEncoder().setEnergizer(1);
@@ -42,7 +46,7 @@ public class Collisions {
                     //delete the energizer
                     item.remove(i);
 
-
+                    //play the sound
                     Sound.play("Resources/shenron.wav");
 
                     //turn on the energizer flag
@@ -50,17 +54,24 @@ public class Collisions {
                     game.setRefreshTarget(0);
                     continue;
                 }
+
+                //fruit collision
                 if(item.get(i).getItemName().equals("apple") || item.get(i).getItemName().equals("banana") || item.get(i).getItemName().equals("cherry")){
-                    //delete the energizer
+                    //delete the fruit
                     item.remove(i);
                     Sound.play("Resources/pacman_eatfruit.wav");
                 }
-
-
             }
         }
     }
-    public static boolean wallCollison(LinkedList<Obstacle> obstacle, Rectangle rect) {
+
+    /**
+     * Check if the pac man´s small rectangles collide with the walls created at the beginning
+     * @param obstacle The walls Linked List
+     * @param rect The small rectangle of pac man
+     * @return True or False
+     */
+    public static Boolean wallCollison(LinkedList<Obstacle> obstacle, Rectangle rect) {
         for (int i = 0; i < obstacle.size(); i++) {
 
             if (rect.intersects(obstacle.get(i).getBounds())) {
@@ -69,51 +80,60 @@ public class Collisions {
         }
         return false;
     }
-    public static void ghostCollison(PacMan pacman, LinkedList<Ghost> ghostInterfaces, Game game) {
-        for (int i = 0; i < ghostInterfaces.size(); i++) {
-            if (pacman.getBounds().intersects(ghostInterfaces.get(i).getPosBounds())) {
 
+    /**
+     * Check if pac man collides with the ghosts
+     * @param pacman The pac man object
+     * @param ghosts The ghosts Linked List
+     * @param game The game access
+     */
+    public static void ghostCollison(PacMan pacman, LinkedList<Ghost> ghosts, Game game) {
+        for (int i = 0; i < ghosts.size(); i++) {
+            if (pacman.getBounds().intersects(ghosts.get(i).getPosBounds())) {
+
+                //if the energizer is triggered pac man can easily eat ghosts
                 if(game.isEnergizerOn()){
-                    //System.out.println("ghost Killed");
 
+                    //play the eat ghost sound
                     Sound.play("Resources/pacman_eatghost.wav");
 
-                    if(ghostInterfaces.get(i).getGhostID().equals("shadow")){
-                        ghostInterfaces.remove(i);
+                    //verify whose ghosts is ate
+                    if(ghosts.get(i).getGhostID().equals("shadow")){
+                        ghosts.remove(i);
 
                         //reset encoder for shadow
-                        game.getEncoder().setShadowX(0);
-                        game.getEncoder().setShadowY(0);
+                        game.getEncoder().setShadowX(0.0);
+                        game.getEncoder().setShadowY(0.0);
 
                         //game.getC().createShadow();
                         break;
                     }
-                    if(ghostInterfaces.get(i).getGhostID().equals("bashful")){
-                        ghostInterfaces.remove(i);
+                    if(ghosts.get(i).getGhostID().equals("bashful")){
+                        ghosts.remove(i);
 
                         //reset encoder for bashful
-                        game.getEncoder().setBashfulX(0);
-                        game.getEncoder().setBashfulY(0);
+                        game.getEncoder().setBashfulX(0.0);
+                        game.getEncoder().setBashfulY(0.0);
 
                         //game.getC().createBashful();
                         break;
                     }
-                    if(ghostInterfaces.get(i).getGhostID().equals("pokey")){
-                        ghostInterfaces.remove(i);
+                    if(ghosts.get(i).getGhostID().equals("pokey")){
+                        ghosts.remove(i);
 
                         //reset encoder for pokey
-                        game.getEncoder().setPokeyX(0);
-                        game.getEncoder().setPokeyY(0);
+                        game.getEncoder().setPokeyX(0.0);
+                        game.getEncoder().setPokeyY(0.0);
 
                         //game.getC().createPokey();
                         break;
                     }
-                    if(ghostInterfaces.get(i).getGhostID().equals("speedy")){
-                        ghostInterfaces.remove(i);
+                    if(ghosts.get(i).getGhostID().equals("speedy")){
+                        ghosts.remove(i);
 
                         //reset encoder for speedy
-                        game.getEncoder().setSpeedyX(0);
-                        game.getEncoder().setSpeedyY(0);
+                        game.getEncoder().setSpeedyX(0.0);
+                        game.getEncoder().setSpeedyY(0.0);
 
                         //game.getC().createSpeedy();
                         break;
@@ -121,28 +141,29 @@ public class Collisions {
 
                 }
                 else{
+
+                    //if the energizer isn´t activated, pac man dies
                     Sound.play("Resources/pacman_death.wav");
                     game.getInfoCreator().removeLives();
 
-                    game.getEncoder().setShadowX(0);
-                    game.getEncoder().setShadowY(0);
+                    //reset the ghosts encoders
+                    game.getEncoder().setShadowX(0.0);
+                    game.getEncoder().setShadowY(0.0);
 
-                    game.getEncoder().setBashfulX(0);
-                    game.getEncoder().setBashfulY(0);
+                    game.getEncoder().setBashfulX(0.0);
+                    game.getEncoder().setBashfulY(0.0);
 
-                    game.getEncoder().setPokeyX(0);
-                    game.getEncoder().setPokeyY(0);
+                    game.getEncoder().setPokeyX(0.0);
+                    game.getEncoder().setPokeyY(0.0);
 
-                    game.getEncoder().setSpeedyX(0);
-                    game.getEncoder().setSpeedyY(0);
+                    game.getEncoder().setSpeedyX(0.0);
+                    game.getEncoder().setSpeedyY(0.0);
 
-                    game.eb.clear();
+                    //remove the ghosts List
+                    game.ghosts.clear();
                     pacman.setDyingFlag(true);
                     game.setResetCountFlag(true);
-
-
                 }
-
             }
         }
     }
