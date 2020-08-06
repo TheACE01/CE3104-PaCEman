@@ -184,7 +184,7 @@ void Parse(char message[BUFFERSIZE], int socket){
     if (strcmp(token1,"dot") == 0){
         game.list[value]=0; // indicate the dot was eaten
         game.amountOfPoints=game.amountOfPoints+game.valueOfPoints;// add points
-        if (CountOneInList()==0){
+        if (value==163){
             if (game.level==3){ // ask if the level is the lastone
                 char messageToSend[20]="won,100.";
                 send(socket , messageToSend , strlen(messageToSend) , 0 );
@@ -212,7 +212,7 @@ void Parse(char message[BUFFERSIZE], int socket){
         //printf("Comió fruto\n");
     }
     else if (strcmp(token1,"ghost")==0){
-        game.amountOfPoints=game.amountOfPoints+value;
+        game.amountOfPoints=game.amountOfPoints+500;
         //printf("Comió un fantasma\n");
     }
     else if (strcmp(token1,"pacman")==0){
@@ -227,7 +227,7 @@ void Parse(char message[BUFFERSIZE], int socket){
         //printf("Murió pacman\n");
     }
 
-    if (game.amountOfPoints>=10000){ // is to give one life
+    if (game.amountOfPoints>=1000){ // is to give one life
         
         game.amountOfLifes++; // add life
         printf("Una Vida más\n");
