@@ -1,47 +1,39 @@
 package characters;
 
-import dataStructures.Structures;
-import graphics.Animations;
 import graphics.Skins;
 import main.Game;
 
 import java.awt.*;
-import java.util.Random;
 
+/**
+ * Speedy ghost observed in the main Game
+ * @author kevin Avevedo
+ */
 public class SpeedyGhost extends Ghost {
 
-    private Animations animRc, animLc, animUc, animDc;
-    private int lastShadowTarget;
-    private int corner;
-    private Random rand = new Random();
-
-
+    /**
+     * Constructor method
+     * @param x Speedy X position
+     * @param y Speedy Y position
+     * @param tex Textures access
+     * @param game Game access
+     */
     public SpeedyGhost(double x, double y, Skins tex, Game game) {
         super(x, y, tex, game);
-
-        animR = new Animations(5, tex.speedy[0], tex.speedy[1]);
-        animL = new Animations(5, tex.speedy[2], tex.speedy[3]);
-        animU = new Animations(5, tex.speedy[4], tex.speedy[5]);
-        animD = new Animations(5, tex.speedy[6], tex.speedy[7]);
-
-        animRc = new Animations(5, tex.chaseSpeedy[0], tex.chaseSpeedy[1]);
-        animLc = new Animations(5, tex.chaseSpeedy[2], tex.chaseSpeedy[3]);
-        animUc = new Animations(5, tex.chaseSpeedy[4], tex.chaseSpeedy[5]);
-        animDc = new Animations(5, tex.chaseSpeedy[6], tex.chaseSpeedy[7]);
-
-        animRs = new Animations(10, tex.scaredGhost[0], tex.scaredGhost[1]);
-        animLs = new Animations(10, tex.scaredGhost[2], tex.scaredGhost[3]);
-        animUs = new Animations(10, tex.scaredGhost[4], tex.scaredGhost[5]);
-        animDs = new Animations(10, tex.scaredGhost[6], tex.scaredGhost[7]);
-
-        ghostID = "speedy";
-
     }
+
+    /**
+     * Draw Shadow image on screen
+     * @param g The painter object
+     */
     public void render(Graphics g){
-        if(x != 0 && y != 0) {
-            g.drawImage(tex.speedy[0], (int) x, (int) y, null);
+        if(x != 0 && y != 0){
+            if(!game.getSkaredFlag()) {
+                g.drawImage(tex.speedy[0], (int)x, (int)y, null);
+            }
+            else {
+                g.drawImage(tex.scaredGhost[0], (int)x, (int)y, null);
+            }
         }
     }
-
-
 }

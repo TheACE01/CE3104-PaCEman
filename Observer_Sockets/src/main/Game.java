@@ -2,12 +2,10 @@ package main;
 
 import characters.Ghost;
 import characters.PacMan;
-
 import creators.CharacterCreator;
 import creators.InfoCreator;
 import graphics.ImageLoader;
 import graphics.Skins;
-import items.Item;
 import user.MouseInput;
 
 import javax.swing.*;
@@ -19,17 +17,26 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-
-
+/**
+ * The main class, defines the window, images, Linked List of the ghost and sockets communication
+ * @author kevin Avevedo
+ */
 public class Game extends Canvas implements Runnable, Observer {
 
-    public static final int WIDTH = 1269;
-    public static final int HEIGHT = 700;
+    //Window dimensions
+    public static final Integer WIDTH = 1269;
+    public static final Integer HEIGHT = 700;
+
+    //Window title
     public final String TITTLE = "paCE man Observer";
 
+    //defines if the Game already started
     private boolean running = false;
+
+    //main game thread
     private Thread thread;
 
+    //init the Game images
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private BufferedImage spriteSheet = null;
     private BufferedImage spriteSheet2 = null;
@@ -43,42 +50,48 @@ public class Game extends Canvas implements Runnable, Observer {
     private BufferedImage cherrySprite = null;
     private BufferedImage live = null;
 
-
+    //Pac man object
     private PacMan p;
+
+    //Character Creator object
     private CharacterCreator c;
+
+    //Info Creator object
     private InfoCreator infoCreator;
+
+    //Textures object
     private Skins tex;
+
+    //menu system object
     private Menu menu;
 
-    public LinkedList<Ghost> eb;
-    public LinkedList<Item> ec;
+    //Ghosts Linked List
+    public LinkedList<Ghost> ghosts;
 
+    //Server object
+    public Server s;
 
+    //Server main thread
+    public Thread serverThread;
 
+    //Defines when to use the energized images of ghosts and pac man
+    private Boolean skaredFlag = false;
 
-
-    public BufferedImage getLive() {
-        return live;
-    }
-
-    public InfoCreator getInfoCreator() {
-        return infoCreator;
-    }
-
-
-
+    //Game states
     public static enum STATE{
         MENU,
         PLAY
     };
+
+    //current state of the game
     public static STATE state = STATE.MENU;
 
+    //Defines when to innit the Observer system
     public static Boolean startFlag = true;
 
-    Server s;
-
-
-
+    /**
+     * init the images and Listeners of the Game
+     */
     public void init(){
         requestFocus();
 
@@ -99,8 +112,6 @@ public class Game extends Canvas implements Runnable, Observer {
             bananaSprite = loader.loadImage("/bananaItem.png");
             cherrySprite = loader.loadImage("/cherryItem.png");
 
-
-
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -108,14 +119,15 @@ public class Game extends Canvas implements Runnable, Observer {
         menu = new Menu();
     }
 
+    /**
+     * Init the Observer system, Characters objects and textures
+     */
     public void playInit(){
 
 
         tex = new Skins(this);
         p = new PacMan(0, 0, tex,this);
         c = new CharacterCreator(tex, this);
-
-        //c.createPacDots();
 
         c.createShadow();
         c.createBashful();
@@ -126,19 +138,18 @@ public class Game extends Canvas implements Runnable, Observer {
         infoCreator = new InfoCreator(tex, this);
 
         //initialize linked lists
-        eb = c.getEb();
-        ec = c.getEc();
+        ghosts = c.getEb();
 
-
-
+        //initialize the server
         s = new Server(6000);
         s.addObserver(this);
-        Thread t = new Thread(s);
-        t.start();
-
-
+        serverThread = new Thread(s);
+        serverThread.start();
     }
 
+    /**
+     * The starting thread method
+     */
     private synchronized void start(){
         if(running)
             return;
@@ -160,15 +171,18 @@ public class Game extends Canvas implements Runnable, Observer {
         System.exit(1);
     }
 
+    /**
+     * Init the game loop of the game and check the action flags
+     */
     @Override
     public void run() {
         init();
         long lastTime = System.nanoTime();
-        final double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
-        double delta = 0;
-        int updates = 0;
-        int frames = 0;
+        final Double amountOfTicks = 60.0;
+        Double ns = 1000000000 / amountOfTicks;
+        Double delta = 0.0;
+        Integer updates = 0;
+        Integer frames = 0;
         long timer = System.currentTimeMillis();
 
 
@@ -185,8 +199,6 @@ public class Game extends Canvas implements Runnable, Observer {
             delta += (now - lastTime) / ns;
             lastTime = now;
             if(delta >= 1){
-
-                tick();
                 updates++;
                 delta--;
             }
@@ -203,13 +215,9 @@ public class Game extends Canvas implements Runnable, Observer {
         stop();
     }
 
-    private void tick(){
-        if(state == STATE.PLAY && startFlag){
-            //update pos
-
-        }
-
-    }
+    /**
+     * Draw the Graphics of the observed objects
+     */
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -218,7 +226,7 @@ public class Game extends Canvas implements Runnable, Observer {
             return;
         }
         Graphics g = bs.getDrawGraphics();
-        /////////////////////////////////////
+
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 
         if(state == STATE.PLAY && startFlag){
@@ -236,6 +244,10 @@ public class Game extends Canvas implements Runnable, Observer {
         bs.show();
     }
 
+    /**
+     * Main method, init the Main thread and Window
+     * @param args
+     */
     public static void main(String args[]){
         Game game = new Game();
 
@@ -289,53 +301,80 @@ public class Game extends Canvas implements Runnable, Observer {
         return c;
     }
 
+    @SuppressWarnings("deprecation")
+    /**
+     * Triggered when the server receive a new message from the main game. Redirect the Characters positions and
+     * statistics information
+     */
     @Override
     public void update(Observable o, Object arg) {
 
         String[] parts = ((String) arg).split(",");
-        double pacmanX = Double.parseDouble(parts[0]);
-        double pacmanY = Double.parseDouble(parts[1]);
+        Double pacmanX = Double.parseDouble(parts[0]);
+        Double pacmanY = Double.parseDouble(parts[1]);
         p.setX(pacmanX);
         p.setY(pacmanY);
 
-        double shadowX = Double.parseDouble(parts[2]);
-        double shadowY = Double.parseDouble(parts[3]);
+        Double shadowX = Double.parseDouble(parts[2]);
+        Double shadowY = Double.parseDouble(parts[3]);
         c.getShadow().setX(shadowX);
         c.getShadow().setY(shadowY);
 
-        double bashfulX = Double.parseDouble(parts[4]);
-        double bashfulY = Double.parseDouble(parts[5]);
+        Double bashfulX = Double.parseDouble(parts[4]);
+        Double bashfulY = Double.parseDouble(parts[5]);
         c.getBashful().setX(bashfulX);
         c.getBashful().setY(bashfulY);
 
-        double pokeyX = Double.parseDouble(parts[6]);
-        double pokeyY = Double.parseDouble(parts[7]);
+        Double pokeyX = Double.parseDouble(parts[6]);
+        Double pokeyY = Double.parseDouble(parts[7]);
         c.getPokey().setX(pokeyX);
         c.getPokey().setY(pokeyY);
 
-        double speedyX = Double.parseDouble(parts[8]);
-        double speedyY = Double.parseDouble(parts[9]);
+        Double speedyX = Double.parseDouble(parts[8]);
+        Double speedyY = Double.parseDouble(parts[9]);
         c.getSpeedy().setX(speedyX);
         c.getSpeedy().setY(speedyY);
 
-        int score = Integer.parseInt(parts[10]);
+        Integer score = Integer.parseInt(parts[10]);
         getInfoCreator().addScore(score);
 
-        int level = Integer.parseInt(parts[11]);
+        Integer level = Integer.parseInt(parts[11]);
         getInfoCreator().addLevel(level);
 
-        int removeItem = Integer.parseInt(parts[12]);
-        //c.removeItem(removeItem);
-
-
-        int newItem = Integer.parseInt(parts[13]);
-
-        int pacLives = Integer.parseInt(parts[14]);
+        Integer pacLives = Integer.parseInt(parts[12]);
         getInfoCreator().addLives(pacLives);
 
 
+        Integer gameStatus = Integer.parseInt(parts[13]);
+        //validate if there is a game over
+        if(gameStatus == -1) {
+            state = STATE.MENU;//back to menu
+            startFlag = false;//init the start flag
+
+        }
+
+        Integer energizerStatus = Integer.parseInt(parts[14]);
+        if(energizerStatus == 1) {
+            skaredFlag = true;
+        }
+        if(energizerStatus == 0) {
+            skaredFlag = false;
+        }
+
+
+    }
+    public Boolean getSkaredFlag() {
+        return skaredFlag;
     }
 
 
+
+    public BufferedImage getLive() {
+        return live;
+    }
+
+    public InfoCreator getInfoCreator() {
+        return infoCreator;
+    }
 
 }

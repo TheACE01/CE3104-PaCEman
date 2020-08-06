@@ -1,7 +1,5 @@
 package characters;
 
-import dataStructures.Structures;
-import graphics.Animations;
 import graphics.Skins;
 import main.Game;
 
@@ -23,7 +21,12 @@ public class PacMan {
 
     public void render(Graphics g){
         if(x != 0 && y != 0){
-            g.drawImage(tex.playerDying, (int)x, (int)y, null);
+            if(!game.getSkaredFlag()) {
+                g.drawImage(tex.playerDying, (int)x, (int)y, null);
+            }
+            else {
+                g.drawImage(tex.playerEnergized[0], (int)x, (int)y, null);
+            }
         }
     }
 
@@ -42,8 +45,4 @@ public class PacMan {
     public void setY(double y) {
         this.y = y;
     }
-
-
-
-
 }

@@ -33,7 +33,7 @@ public class StreamingClient implements Runnable {
     public void run() {
 
         //the ip address of the observer
-        final String HOST = "192.168.100.9";
+        final String HOST = "127.100.0.1";
 
         //Output Stream
         DataOutputStream out;

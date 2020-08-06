@@ -8,15 +8,26 @@ import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Server socket, establish a stream with clients from the main game and notifies the observer added
+ * @author kevin Avevedo
+ */
 public class Server extends Observable implements Runnable {
 
-    private int puerto;
+    //Port number
+    private Integer port;
 
-    public Server(int puerto) {
-        this.puerto = puerto;
-
+    /**
+     * Constructor method
+     * @param puerto Server port
+     */
+    public Server(Integer puerto) {
+        this.port = puerto;
     }
 
+    /**
+     * Init the socket and wait for new clients
+     */
     @Override
     public void run() {
         ServerSocket servidor = null;
@@ -24,48 +35,31 @@ public class Server extends Observable implements Runnable {
         DataInputStream in;
 
         try {
-            //Creamos el socket del servidor
-            servidor = new ServerSocket(puerto);
-            System.out.println("Servidor iniciado");
+            //Create new Server
+            servidor = new ServerSocket(port);
+            System.out.println("Served turned on");
 
-            //Siempre estara escuchando peticiones
+            //Always waiting for services
             while (true) {
-
-                //Espero a que un cliente se conecte
+                //waiting for new clients
                 sc = servidor.accept();
 
-                //System.out.println("Cliente conectado");
+                //init the input stream to receive messages
                 in = new DataInputStream(sc.getInputStream());
 
-                //Leo el mensaje que me envia
-                String mensaje = in.readUTF();
+                //Read a new message from clients
+                String message = in.readUTF();
 
-                //System.out.println(mensaje);
-
+                //notifies the observer
                 this.setChanged();
-                this.notifyObservers(mensaje);
+                this.notifyObservers(message);
                 this.clearChanged();
 
-
-
-                //Cierro el socket
+                //close the connection
                 sc.close();
-                //System.out.println("Cliente desconectado");
-
             }
-
         } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-    /*
-    public static void main(String args[]){
-        main.Server s = new main.Server(6000);
-        Thread t = new Thread(s);
-        t.start();
-    }
-
-     */
-
 }

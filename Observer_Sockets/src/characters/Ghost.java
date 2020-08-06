@@ -1,48 +1,47 @@
 package characters;
 
-import dataStructures.GhostNode;
-import dataStructures.Structures;
-import graphics.Animations;
 import graphics.Skins;
 import main.Game;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
+/**
+ * Parent ghost class, defines the structure and basic behavior of observed ghosts objects
+ * @author kevin Avevedo
+ */
 public class Ghost {
 
+    //Ghost positions
     public double x, y;
-    public double velX, velY;
-    public double boost;
-    public boolean R, L, U, D;
-    public List<String> ghostPath = new ArrayList<>();
-    public Game game;
-    public Skins tex;
-    public String nowGhostNode = "Node_28";
-    public int ghostNodeCont = 0;
-    public Animations animR, animL, animU, animD, animRs, animLs, animUs, animDs;
-    public String ghostID;
 
+    //Game access
+    public Game game;
+
+    //Textures access
+    public Skins tex;
+
+    /**
+     * Constructor method
+     * @param x Ghost X position
+     * @param y Ghost Y position
+     * @param tex Textures of characters
+     * @param game The main class
+     */
     public Ghost(double x, double y, Skins tex, Game game) {
         this.x = x;
         this.y = y;
         this.game = game;
         this.tex = tex;
-
-        R = false;
-        L = false;
-        U = false;
-        D = false;
     }
 
-
+    /**
+     * Draw the ghost image on screen
+     * @param g The painter object
+     */
 
     public void render(Graphics g){
 
     }
-
 
     public double getX() {
         return x;
@@ -58,7 +57,5 @@ public class Ghost {
     public void setY(double y) {
         this.y = y;
     }
-
-
 
 }
