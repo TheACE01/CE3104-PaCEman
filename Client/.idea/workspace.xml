@@ -1,63 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cb45f6e-f890-4c25-a560-bba0c30c0380" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/Physics/Collisions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Physics/Collisions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/Bashful.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/Bashful.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/BashfulGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/BashfulGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/Ghost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/PacMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/PacMan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/Pokey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/Pokey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/PokeyGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/PokeyGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/Shadow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/Shadow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/ShadowGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/ShadowGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/Speedy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/Speedy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/characters/SpeedyGhost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/characters/SpeedyGhost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/conections/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/conections/Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/conections/StreamingClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/conections/StreamingClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/creators/CharacterCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/creators/CharacterCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/creators/InfoCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/creators/InfoCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/DijkstraAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/DijkstraAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/DijkstraExec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/DijkstraExec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/DijkstraAlgorithm/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/GhostNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/GhostNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/Quadrant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/Quadrant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/dataStructures/Structures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/dataStructures/Structures.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/graphics/Animations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/graphics/Animations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/graphics/ImageLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/graphics/ImageLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/graphics/Skins.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/graphics/Skins.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/graphics/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/graphics/SpriteSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/interfaces/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/interfaces/Ghost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/interfaces/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/interfaces/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/interfaces/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/interfaces/Obstacle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Apple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Apple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Banana.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Banana.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Cherry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Cherry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Energizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Energizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/PacDot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/PacDot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/items/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/items/Wall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/main/Game$STATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/main/Game$STATE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/main/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/main/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/music/Sound$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/music/Sound$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/music/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/music/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/user/MouseInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/user/MouseInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/user/PacManControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/user/PacManControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Physics/Collisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Physics/Collisions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creators/CharacterCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creators/CharacterCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creators/InfoCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creators/InfoCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Observer_Sockets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer_Sockets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Observer_Sockets/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer_Sockets/src/main/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cb45f6e-f890-4c25-a560-bba0c30c0380" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +20,10 @@
   </component>
   <component name="ProjectId" id="1fCXUxKhooYhP7gadImK4pgllnN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -84,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/JavaC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -132,6 +80,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -166,6 +115,7 @@
       <workItem from="1596685393586" duration="539000" />
       <workItem from="1596689175253" duration="601000" />
       <workItem from="1596703015629" duration="5259000" />
+      <workItem from="1596740447491" duration="1726000" />
     </task>
     <servers />
   </component>
@@ -184,5 +134,51 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="693" y="205" width="590" height="695" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1596704999553">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="693" y="205" width="590" height="695" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1596704999553" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1596706633050">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1596706633050" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1596707055875">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055875" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1596707055874">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055874" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1596707055873">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055873" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1596707055875">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055875" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1596707055862">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055862" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1596707055858">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055858" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1596707055858">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055858" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1596707055859">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596707055859" />
+    <state x="476" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1596689492808">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="476" y="130" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1596689492808" />
   </component>
 </project>

@@ -16,8 +16,6 @@ import user.MouseInput;
 import user.PacManControl;
 
 import javax.swing.*;
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
@@ -103,14 +101,13 @@ public class Game extends Canvas implements Runnable {
     //Controls the reset pac man and ghosts time
     private Integer resetCount = 0;
 
-    public LinkedList<Item> getItems() {
-        return items;
-    }
-
     public Client getClient() {
         return client;
     }
 
+    public LinkedList<Item> getItems() {
+        return items;
+    }
 
     //States of the game
     public static enum STATE{
@@ -195,7 +192,6 @@ public class Game extends Canvas implements Runnable {
         obstacles = c.getWalls();
 
         //initialize the client
-
 
         client = new Client("localhost", 8081, this);
         clientThread = new Thread(client);
@@ -319,23 +315,6 @@ public class Game extends Canvas implements Runnable {
             p.tick();
             c.tick();
 
-            if(infoCreator.getLives() == 0 || infoCreator.getLevel() == 4){
-                //notify the observer
-                encoder.setState(-1);
-
-                //stop the client socket
-                /*
-                try {
-                    clientThread.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                 */
-
-                state = STATE.MENU;
-                startFlag = false;
-            }
-
             //update the encoder object and notify the observer
             updateEncoder();
         }
@@ -366,8 +345,7 @@ public class Game extends Canvas implements Runnable {
 
             g.drawImage(menu_background,0,0,this);
             menu.render(g);
-            }
-
+        }
 
         g.dispose();
         bs.show();
@@ -407,29 +385,6 @@ public class Game extends Canvas implements Runnable {
                 p.setVelY(3.0);
             }
 
-            else if(key == KeyEvent.VK_1){
-                c.createShadow();
-            }
-            else if(key == KeyEvent.VK_2){
-                c.createBashful();
-            }
-            else if(key == KeyEvent.VK_3){
-                c.createPokey();
-            }
-            else if(key == KeyEvent.VK_4){
-                c.createSpeedy();
-            }
-
-            else if(key == KeyEvent.VK_5){
-                c.GhostBoost(1.5);
-            }
-            else if(key == KeyEvent.VK_6){
-                c.GhostBoost(2.5);
-            }
-            else if(key == KeyEvent.VK_7){
-                c.createFruit(200);
-            }
-
         }
 
     }
@@ -442,7 +397,7 @@ public class Game extends Canvas implements Runnable {
         int key = e.getKeyCode();
 
         if(key == KeyEvent.VK_D){
-           p.setVelX(0.0);
+            p.setVelX(0.0);
         }
         else if(key == KeyEvent.VK_A){
             p.setVelX(0.0);
@@ -476,7 +431,6 @@ public class Game extends Canvas implements Runnable {
         frame.setVisible(true);
 
         game.start();
-
 
     }
 
@@ -577,27 +531,27 @@ public class Game extends Canvas implements Runnable {
         String encodedCharacters =
                 //pac man state
                 Double.toString(encoder.getPacmanX()) +
-                "," + Double.toString(encoder.getPacmanY()) +
+                        "," + Double.toString(encoder.getPacmanY()) +
 
-                "," + Double.toString(encoder.getShadowX()) +
-                "," + Double.toString(encoder.getShadowY()) +
+                        "," + Double.toString(encoder.getShadowX()) +
+                        "," + Double.toString(encoder.getShadowY()) +
 
-                "," + Double.toString(encoder.getBashfulX()) +
-                "," + Double.toString(encoder.getBashfulY()) +
+                        "," + Double.toString(encoder.getBashfulX()) +
+                        "," + Double.toString(encoder.getBashfulY()) +
 
-                "," + Double.toString(encoder.getPokeyX()) +
-                "," + Double.toString(encoder.getPokeyY()) +
+                        "," + Double.toString(encoder.getPokeyX()) +
+                        "," + Double.toString(encoder.getPokeyY()) +
 
-                "," + Double.toString(encoder.getSpeedyX()) +
-                "," + Double.toString(encoder.getSpeedyY()) +
+                        "," + Double.toString(encoder.getSpeedyX()) +
+                        "," + Double.toString(encoder.getSpeedyY()) +
 
-                "," + Integer.toString(encoder.getScore()) +
+                        "," + Integer.toString(encoder.getScore()) +
 
-                "," + Integer.toString(encoder.getLevel()) +
+                        "," + Integer.toString(encoder.getLevel()) +
 
-                "," + Integer.toString(encoder.getLives()) +
+                        "," + Integer.toString(encoder.getLives()) +
 
-                "," + Integer.toString(encoder.getState()) +
+                        "," + Integer.toString(encoder.getState()) +
 
                         "," + Integer.toString(encoder.getEnergizer());
 
@@ -611,7 +565,7 @@ public class Game extends Canvas implements Runnable {
      */
     public void levelUp(){
         infoCreator.addLevel();
-        items.clear();
+        getItems().clear();
         ghosts.clear();
         p.setX(564.0);
         p.setY(450.0);
@@ -680,6 +634,14 @@ public class Game extends Canvas implements Runnable {
         //6: Velocity request
         if(requestName.equals("velocity")){
             c.GhostBoost(requestValue);
+        }
+
+        //7: Won request
+        if(requestName.equals("won")){
+            //notify the observer
+            encoder.setState(-1);
+            state = STATE.MENU;
+            startFlag = false;
         }
 
     }

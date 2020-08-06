@@ -170,6 +170,10 @@ public class CharacterCreator {
         }
     }
 
+    /**
+     * Creates a new energizer in a specific position, using the quadrant Number
+     * @param quadrant The quadrant number
+     */
     public void createEnergizer(Integer quadrant){
         //check if the quadrant is not available
         for(Integer i = 0; i < items.size(); i++){
@@ -194,6 +198,11 @@ public class CharacterCreator {
         }
     }
 
+    /**
+     * Creates a new Fruit on the center of the map. Use a random class to generate one of the
+     * three fruits. Set up the points of the item.
+     * @param fruitValue The fruit Points
+     */
     public void createFruit(Integer fruitValue){
         //check if the quadrant is not available
         for(Integer i = 0; i < items.size(); i++){

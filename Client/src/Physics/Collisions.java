@@ -75,9 +75,16 @@ public class Collisions {
 
                 //fruit collision
                 if(item.get(i).getItemName().equals("apple") || item.get(i).getItemName().equals("banana") || item.get(i).getItemName().equals("cherry")){
+
                     //notify the C server
                     String message = "fruit" + "," + Integer.toString(item.get(i).getValue());
                     game.getClient().SendMessage(message);
+
+                    //Verify if there is just one item in the items linked list
+                    if(item.size() == 1){
+                        message = "dot" + "," + Integer.toString(163);
+                        game.getClient().SendMessage(message);
+                    }
 
                     //Update the player score
                     game.getInfoCreator().addScore(item.get(i).getValue());
@@ -116,6 +123,7 @@ public class Collisions {
     public static void ghostCollison(PacMan pacman, LinkedList<Ghost> ghosts, Game game) {
         for (int i = 0; i < ghosts.size(); i++) {
             if (pacman.getBounds().intersects(ghosts.get(i).getPosBounds())) {
+                game.getInfoCreator().addScore(500);
 
                 //if the energizer is triggered pac man can easily eat ghosts
                 if(game.isEnergizerOn()){
