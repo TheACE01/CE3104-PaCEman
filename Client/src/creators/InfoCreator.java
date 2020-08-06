@@ -55,8 +55,8 @@ public class InfoCreator {
         g.setColor(Color.YELLOW);
 
         //Score text
-        g.drawString("Score:", 1050, 30);
-        g.drawString(Integer.toString(score), 1150, 30);
+        g.drawString("Score:", 950, 30);
+        g.drawString(Integer.toString(score), 1100, 30);
 
         //Level text
         g.drawString("Level:", 100, 30);

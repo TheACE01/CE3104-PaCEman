@@ -102,7 +102,7 @@ public class PacMan {
         wallLimits();
 
         //verifying collisions with map items
-        Collisions.ItemCollision(this, game.items, game);
+        Collisions.ItemCollision(this, game.getItems(), game);
 
         //verifying collisions with ghosts
         Collisions.ghostCollison(this, game.ghosts, game);

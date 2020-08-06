@@ -26,11 +26,18 @@ public class Collisions {
         for(int i = 0; i < item.size(); i++){
             if(pacman.getBounds().intersects(item.get(i).getBounds())){
 
+                //verify the items list size
+                Integer serverValue = 0;
+                if(game.getItems().size() == 1){
+                    serverValue = 163;
+                }
                 //pac dot collision
                 if(item.get(i).getItemName().equals("pacDot")){
+
                     //notify the C server
-                    String message = "dot" + "," + Integer.toString(item.get(i).quadrant);
+                    String message = "dot" + "," + Integer.toString(serverValue);
                     game.getClient().SendMessage(message);
+
 
                     //Update the player score
                     game.getInfoCreator().addScore(item.get(i).value);
@@ -50,8 +57,9 @@ public class Collisions {
                     game.getEncoder().setEnergizer(1);
 
                     //notify the C server
-                    String message = "dot" + "," + Integer.toString(item.get(i).quadrant);
+                    String message = "dot" + "," + Integer.toString(serverValue);
                     game.getClient().SendMessage(message);
+
 
                     //delete the energizer
                     item.remove(i);

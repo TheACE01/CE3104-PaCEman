@@ -76,7 +76,7 @@ public class Game extends Canvas implements Runnable {
 
     //Characters Lists
     public LinkedList<Ghost> ghosts;
-    public LinkedList<Item> items;
+    private LinkedList<Item> items;
     public LinkedList<Obstacle> obstacles;
 
     //Dijkstra Algorithm object
@@ -103,9 +103,14 @@ public class Game extends Canvas implements Runnable {
     //Controls the reset pac man and ghosts time
     private Integer resetCount = 0;
 
+    public LinkedList<Item> getItems() {
+        return items;
+    }
+
     public Client getClient() {
         return client;
     }
+
 
     //States of the game
     public static enum STATE{
@@ -190,6 +195,7 @@ public class Game extends Canvas implements Runnable {
         obstacles = c.getWalls();
 
         //initialize the client
+
 
         client = new Client("localhost", 8081, this);
         clientThread = new Thread(client);

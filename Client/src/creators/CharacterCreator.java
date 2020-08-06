@@ -141,6 +141,7 @@ public class CharacterCreator {
      */
     public void createPacDots(){
 
+
         for(Integer i = 0; i < Structures.director.length; i++){
             //Quadrant object
             Quadrant q = Structures.director[i];
@@ -170,6 +171,16 @@ public class CharacterCreator {
     }
 
     public void createEnergizer(Integer quadrant){
+        //check if the quadrant is not available
+        for(Integer i = 0; i < items.size(); i++){
+            Item item = items.get(i);
+            //There is a pac dot in this position
+            if(item.getX() == 564 && item.getY() == 250){
+                //Then we remove the item to add a new fruit
+                items.remove(item);
+                break;
+            }
+        }
         //Search the X and Y pos using the quadrant number and the director structure
         for(Integer i = 0; i < Structures.director.length; i++){
             Quadrant q = Structures.director[i];
